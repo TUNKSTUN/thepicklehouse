@@ -1,12 +1,244 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  @apply bg-white dark:bg-gray-950;
+/* ----------------------------------------
+   Pickle Brand Design System 
+   Traditional Indian aesthetics meets modern web
+---------------------------------------- */
+@layer base {
+  :root {
+    /* Core Palette - Light Theme */
+    --background: 48 15% 97%;
+    --foreground: 25 25% 15%;
 
-  @media (prefers-color-scheme: dark) {
-    color-scheme: dark;
+    --card: 48 20% 98%;
+    --card-foreground: 25 25% 15%;
+
+    --popover: 48 20% 98%;
+    --popover-foreground: 25 25% 15%;
+
+    --primary: 80 30% 25%;
+    --primary-foreground: 48 25% 95%;
+
+    --secondary: 48 85% 75%;
+    --secondary-foreground: 25 30% 20%;
+
+    --muted: 25 35% 88%;
+    --muted-foreground: 25 15% 45%;
+
+    --accent: 25 45% 65%;
+    --accent-foreground: 48 25% 95%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 48 25% 95%;
+
+    --border: 25 25% 85%;
+    --input: 25 25% 90%;
+    --ring: 80 30% 25%;
+
+    --radius: 0.75rem;
+
+    /* Brand-Specific Colors */
+    --turmeric: 48 85% 65%;
+    --terracotta: 15 65% 70%;
+    --spice-red: 10 75% 60%;
+    --masala-brown: 25 45% 35%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(
+      135deg,
+      hsl(var(--primary)),
+      hsl(var(--masala-brown))
+    );
+    --gradient-warm: linear-gradient(
+      180deg,
+      hsl(var(--background)),
+      hsl(var(--muted))
+    );
+    --gradient-spice: linear-gradient(
+      45deg,
+      hsl(var(--turmeric)),
+      hsl(var(--spice-red))
+    );
+
+    /* Shadows */
+    --shadow-warm: 0 10px 30px -10px hsl(var(--masala-brown) / 0.3);
+    --shadow-glow: 0 0 40px hsl(var(--turmeric) / 0.4);
+
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    /* Sidebar */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    /* @apply bg-background text-foreground font-inter; */
+  }
+}
+
+@layer components {
+  /* Hero Section Typography */
+  .hero-title {
+    @apply font-playfair font-bold text-4xl md:text-6xl lg:text-7xl;
+    background: var(--gradient-hero);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px hsl(var(--masala-brown) / 0.3);
+  }
+
+  .hero-subtitle {
+    @apply text-lg md:text-xl text-muted-foreground font-inter font-light;
+  }
+
+  /* Product Card */
+  .product-card {
+    @apply bg-card rounded-lg overflow-hidden border border-border;
+    box-shadow: var(--shadow-warm);
+    transition: var(--transition-smooth);
+  }
+
+  .product-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    /* box-shadow: var(--shadow-glow); */
+  }
+
+  /* Buttons */
+  .btn-hero {
+    @apply text-primary-foreground px-8 py-4 rounded-full font-semibold;
+    background: var(--gradient-hero);
+    transition: var(--transition-bounce);
+    box-shadow: var(--shadow-warm);
+  }
+
+  .btn-hero:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .btn-secondary {
+    @apply text-secondary-foreground px-8 py-4 rounded-full font-semibold;
+    background: var(--gradient-spice);
+    transition: var(--transition-smooth);
+  }
+
+  .btn-secondary:hover {
+    transform: scale(1.05);
+  }
+
+  /* Textures */
+  .texture-overlay {
+    position: relative;
+  }
+
+  .texture-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: radial-gradient(
+        circle at 25% 25%,
+        hsl(var(--turmeric) / 0.1) 0%,
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        hsl(var(--spice-red) / 0.1) 0%,
+        transparent 50%
+      );
+    pointer-events: none;
+  }
+
+  /* Animations */
+  .animate-fade-up {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-stagger {
+    animation: fadeUp 0.6s ease-out forwards;
+  }
+
+  .animate-stagger:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .animate-stagger:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  .animate-stagger:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+  .animate-stagger:nth-child(5) {
+    animation-delay: 0.4s;
+  }
+  .animate-stagger:nth-child(6) {
+    animation-delay: 0.5s;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
