@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { ProductModel } from "../models/product.model";
 import { UserModel } from "../models/user.model";
-import { authenticator } from "../lib/security/session.server";
+// import { authenticator } from "../lib/security/session.server";
 import { generateId, EntityType } from "../lib/utils";
 import type { Product } from "../types/Product";
 import type { Request } from "@remix-run/node";
@@ -259,10 +259,6 @@ export class ProductService {
     >
   ): Promise<Product> {
     try {
-      await authenticator.isAuthenticated(request, {
-        failureRedirect: "/_thop_.login?redirect=/admin/dashboard",
-      });
-
       if (!productData.name || !productData.price || !productData.slug) {
         throw new Error("Name, price, and slug are required");
       }
@@ -300,10 +296,6 @@ export class ProductService {
     >
   ): Promise<Product[]> {
     try {
-      await authenticator.isAuthenticated(request, {
-        failureRedirect: "/_thop_.login?redirect=/admin/dashboard",
-      });
-
       const products = productsData.map((data) => {
         if (!data.name || !data.price || !data.slug) {
           throw new Error(
@@ -345,10 +337,6 @@ export class ProductService {
     updateData: Partial<Product>
   ): Promise<Product | null> {
     try {
-      await authenticator.isAuthenticated(request, {
-        failureRedirect: "/_thop_.login?redirect=/admin/dashboard",
-      });
-
       if (!productId) {
         throw new Error("Product ID is required");
       }
@@ -391,10 +379,6 @@ export class ProductService {
     stock: number
   ): Promise<Product | null> {
     try {
-      await authenticator.isAuthenticated(request, {
-        failureRedirect: "/_thop_.login?redirect=/admin/dashboard",
-      });
-
       if (!productId || stock < 0) {
         throw new Error("Product ID and non-negative stock are required");
       }
@@ -434,10 +418,6 @@ export class ProductService {
     productId: string
   ): Promise<void> {
     try {
-      await authenticator.isAuthenticated(request, {
-        failureRedirect: "/_thop_.login?redirect=/admin/dashboard",
-      });
-
       if (!productId) {
         throw new Error("Product ID is required");
       }

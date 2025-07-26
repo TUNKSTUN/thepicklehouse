@@ -1,20 +1,16 @@
 import mongoose from "mongoose";
 import { ContactDetailsModel } from "../models/contact-details.model";
-import { authenticator } from "../lib/security/session.server";
 import { generateId, EntityType } from "../lib/utils";
 import type { ContactDetails } from "../models/contact-details.model";
-import type { Request } from "@remix-run/node";
 
 // User-facing functions
 export class ContactDetailsService {
   /**
    * Get contact details (user and admin accessible).
-   * @returns Contact details or null if not found.
-   * @throws Error if database query fails.
    */
   static async getContactDetails(): Promise<ContactDetails | null> {
     try {
-      console.log("MongoDB Connection State:", mongoose.connection.readyState); // 1 = connected
+      console.log("MongoDB Connection State:", mongoose.connection.readyState);
       const contactDetails = await ContactDetailsModel.findOne().lean();
       if (!contactDetails) {
         console.log("No contact details found in collection");
@@ -32,30 +28,20 @@ export class ContactDetailsService {
     }
   }
 
-  // Admin-facing functions
   /**
-   * Create or update contact details (admin only, upsert).
-   * @param request - Remix request object for authentication.
-   * @param contactData - Contact details data excluding contactId, createdAt, updatedAt.
-   * @returns Created or updated contact details.
-   * @throws Error if authentication fails, required fields are missing, or upsert fails.
+   * Create or update contact details (no auth).
    */
   static async upsertContactDetails(
-    request: Request,
     contactData: Omit<ContactDetails, "contactId" | "createdAt" | "updatedAt">
   ): Promise<ContactDetails> {
     try {
-      await authenticator.isAuthenticated(request, {
-        failureRedirect: "/_thop_.login?redirect=/admin/dashboard",
-      });
-
       if (!contactData.address || !contactData.phone || !contactData.email) {
         throw new Error("Address, phone, and email are required");
       }
 
       const contactId = generateId(EntityType.ContactDetails);
       const contactDetails = await ContactDetailsModel.findOneAndUpdate(
-        {}, // Match any document (single record assumption)
+        {},
         {
           ...contactData,
           contactId,
@@ -77,23 +63,13 @@ export class ContactDetailsService {
   }
 
   /**
-   * Update contact details (admin only).
-   * @param request - Remix request object for authentication.
-   * @param contactId - ID of the contact details.
-   * @param updateData - Partial contact details data to update.
-   * @returns Updated contact details or null if not found.
-   * @throws Error if authentication fails, contactId is invalid, or update fails.
+   * Update contact details (no auth).
    */
   static async updateContactDetails(
-    request: Request,
     contactId: string,
     updateData: Partial<ContactDetails>
   ): Promise<ContactDetails | null> {
     try {
-      await authenticator.isAuthenticated(request, {
-        failureRedirect: "/_thop_.login?redirect=/admin/dashboard",
-      });
-
       if (!contactId) {
         throw new Error("Contact ID is required");
       }
@@ -121,20 +97,10 @@ export class ContactDetailsService {
   }
 
   /**
-   * Delete contact details (admin only).
-   * @param request - Remix request object for authentication.
-   * @param contactId - ID of the contact details.
-   * @throws Error if authentication fails, contactId is invalid, or deletion fails.
+   * Delete contact details (no auth).
    */
-  static async deleteContactDetails(
-    request: Request,
-    contactId: string
-  ): Promise<void> {
+  static async deleteContactDetails(contactId: string): Promise<void> {
     try {
-      await authenticator.isAuthenticated(request, {
-        failureRedirect: "/_thop_.login?redirect=/admin/dashboard",
-      });
-
       if (!contactId) {
         throw new Error("Contact ID is required");
       }
