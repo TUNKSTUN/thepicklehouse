@@ -3,7 +3,7 @@ import { UserModel } from "../models/user.model";
 import { ProductModel } from "../models/product.model";
 import { v4 as uuidv4 } from "uuid";
 import bcrypt from "bcryptjs";
-import { initMongoDB } from "../environments/environment";
+import { initMongoDB } from "~/environments/environment";
 import { User, Address, PurchaseHistory, Wishlist } from "../types/User";
 
 async function seedUsers() {

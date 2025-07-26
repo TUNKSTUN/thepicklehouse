@@ -1,6 +1,6 @@
 // import { createCookieSessionStorage, redirect, json } from "@remix-run/node";
 // import { authenticator } from "./auth.server";
-// import { environment } from "../../environments/environment";
+// import { environment } from "~/environments/environment";
 // import { CartModel } from "../../models/cart.model";
 // import { generateId, validateId, EntityType } from "../../lib/utils";
 // import type { Cart } from "../../types/Cart";

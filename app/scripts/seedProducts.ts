@@ -1,6 +1,6 @@
 import { ProductModel } from "../models/product.model.ts";
 import { v4 as uuidv4 } from "uuid";
-import { initMongoDB } from "../environments/environment.ts";
+import { initMongoDB } from "~/environments/environment.ts";
 
 async function seedProducts() {
   await initMongoDB();
