@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Button } from "../components/ui/button";
 import heroImage from "../assets/hero-pickle-kitchen.jpg";
 import { useNavigate } from "react-router-dom";
+import { GiChiliPepper } from "react-icons/gi";
 
 export const Hero = () => {
   const navigate = useNavigate();
@@ -22,11 +23,11 @@ export const Hero = () => {
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
           <div className="flex items-center justify-center mb-6 animate-fade-up">
             <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-md rounded-full px-6 py-3 border border-white/20">
-              <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+              <GiChiliPepper className="w-4 h-4 text-yellow-400 fill-red-500" />
               <span className="text-sm font-medium text-white">
                 Handcrafted Since 2000s
               </span>
-              <Star className="w-4 h-4 text-yellow-400 fill-yellow-400" />
+              <GiChiliPepper className="w-4 h-4 text-yellow-400 fill-red-500" />
             </div>
           </div>
 
@@ -67,7 +68,7 @@ export const Hero = () => {
             <Link to={`/store/products`}>
               <Button
                 // onClick={}
-                className="group px-8 py-4 bg-secondary hover:bg-amber-400 text-primary font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-amber-500"
+                className="group px-8 py-6 bg-secondary hover:bg-amber-400 text-primary font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-amber-500"
               >
                 Shop Our Pickles
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -77,7 +78,7 @@ export const Hero = () => {
             <Link to="/about">
               <Button
                 variant="outline"
-                className="px-8 py-4 bg-white/10 border-2 border-white text-white hover:bg-white hover:text-gray-900 backdrop-blur-md rounded-full font-semibold transition-all duration-300 hover:scale-105"
+                className="px-8 py-6 bg-white/10 border-2 border-white text-white hover:bg-white hover:text-gray-900 backdrop-blur-md rounded-full font-semibold transition-all duration-300 hover:scale-105"
               >
                 Our Story
               </Button>
@@ -90,11 +91,11 @@ export const Hero = () => {
             style={{ animationDelay: "0.8s" }}
           >
             <div className="text-center bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
-              <div className="text-3xl font-bold text-amber-300 mb-1">38+</div>
+              <div className="text-3xl font-bold text-amber-300 mb-1">15+</div>
               <div className="text-sm text-gray-200">Years of Excellence</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">
-              <div className="text-3xl font-bold text-amber-300 mb-1">10K+</div>
+              <div className="text-3xl font-bold text-amber-300 mb-1">100+</div>
               <div className="text-sm text-gray-200">Happy Customers</div>
             </div>
             <div className="text-center bg-white/10 backdrop-blur-md rounded-lg p-4 border border-white/20">

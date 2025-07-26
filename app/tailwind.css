@@ -14,14 +14,17 @@
     --background: 48 15% 97%;
     --foreground: 25 25% 15%;
 
+    --olived: 80 30% 25%;
+    --olived-foreground: 48 25% 95%;
+
     --card: 48 20% 98%;
     --card-foreground: 25 25% 15%;
 
     --popover: 48 20% 98%;
     --popover-foreground: 25 25% 15%;
 
-    --primary: 80 30% 25%;
-    --primary-foreground: 48 25% 95%;
+    --primary: 0 45% 30%;
+    --primary-foreground: 0 20% 96%;
 
     --secondary: 48 85% 75%;
     --secondary-foreground: 25 30% 20%;

@@ -15,6 +15,9 @@ import { motion } from "framer-motion";
 import AuntyMasalaMaking from "../assets/aunty_masala_making2.png";
 import AuntyClipArt from "../assets/20250719_1721_Grandmother's Pickle Preparation_simple_compose_01k0h872pafgrtv7560nvppzck.png";
 import ProcessBackgroundImage from "../assets/home/process_background_image.png";
+import CornerDesign from "../assets/design-wooden-flowers-2.png";
+import CornerDesign2 from "../assets/design-wooden-flowers.png";
+import Charminar from "../assets/charminar.webp";
 
 const About = () => {
   const values = [
@@ -46,40 +49,22 @@ const About = () => {
 
   const timeline = [
     {
-      year: "1985",
-      title: "The Beginning",
-      description:
-        "Our journey began in a small kitchen in Old City Hyderabad, crafting pickles shared with neighbors and friends.",
-    },
-    {
-      year: "1992",
-      title: "Growing Demand",
-      description:
-        "Word spread across Hyderabad about the exceptional quality of our pickles. Local shops began requesting regular supplies.",
-    },
-    {
-      year: "2000",
+      year: "2018",
       title: "Official Launch",
       description:
         "The House of Pickles was established as a family business, moving to a dedicated facility while preserving traditional methods.",
     },
     {
-      year: "2010",
-      title: "Regional Expansion",
-      description:
-        "Our pickles reached neighboring states as demand grew. We maintained quality while scaling production using time-tested recipes.",
-    },
-    {
-      year: "2018",
+      year: "2022",
       title: "Digital Presence",
       description:
         "Launch of our online store, bringing authentic Hyderabadi flavors to customers across India and beyond.",
     },
     {
-      year: "2023",
+      year: "2025",
       title: "Today",
       description:
-        "Proudly serving thousands of families while staying true to our roots, with the same passion and commitment to quality.",
+        "Launch of our online store, bringing authentic Hyderabadi flavors to customers across India and beyond. Proudly serving thousands of families while staying true to our roots, with the same passion and commitment to quality.",
     },
   ];
 
@@ -134,25 +119,33 @@ const About = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen ">
       {/* Hero Section */}
-      <section className="relative py-16 lg:py-24  overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0 -z-10 bg-white">
-          <img
-            src={AuntyMasalaMaking}
-            alt="aunty-masala-making"
-            className="w-full h-full object-cover opacity-50 blur-sm"
-          />
-        </div>
-
-        {/* Foreground Content */}
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-6xl font-playfair font-bold text-secondary-foreground mb-6 animate-fade-up">
-            Our <span className="text-primary">Story</span>
+      <section className="relative py-20 lg:py-32 bg-gradient-to-br from-background via-secondary/20 to-turmeric/10 overflow-hidden">
+        <div
+          className="absolute inset-0 w-full h-full bg-fixed bg-cover bg-center z-0"
+          style={{
+            backgroundImage: `url(${AuntyMasalaMaking})`,
+            backgroundAttachment: "fixed",
+            opacity: 0.05,
+            transform: "translateZ(0)", // Ensures smooth rendering
+          }}
+        ></div>
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="mb-6">
+            <span className="inline-block px-4 py-2 bg-turmeric/20 text-masala-brown text-sm font-medium rounded-full mb-4 animate-fade-up">
+              Our Journey
+            </span>
+          </div>
+          <h1 className="text-5xl lg:text-7xl font-playfair font-bold text-foreground mb-8 animate-fade-up">
+            Our{" "}
+            <span className="text-primary relative">
+              Story
+              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-turmeric via-spice-red to-terracotta opacity-60"></div>
+            </span>
           </h1>
           <p
-            className="text-xl text-masala-brown-muted italic leading-relaxed animate-fade-up max-w-3xl mx-auto"
+            className="text-xl lg:text-2xl text-muted-foreground italic leading-relaxed max-w-3xl mx-auto animate-fade-up"
             style={{ animationDelay: "0.2s" }}
           >
             Rooted in tradition, stirred with love — sharing Hyderabad’s
@@ -162,8 +155,26 @@ const About = () => {
       </section>
 
       {/* Story Section */}
-      <section className="py-16 lg:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 lg:py-24 relative overflow-hidden bg-background border-primary border-x-8 border-t-8">
+        {/* Top left corner design */}
+        <div className="absolute top-0 left-0 w-60 h-60 lg:w-96 lg:h-96 z-10 opacity-10">
+          <img
+            src={CornerDesign}
+            alt="Wooden corner design top left"
+            className="w-full h-full object-contain"
+          />
+        </div>
+
+        {/* Bottom right corner design (inverted) */}
+        <div className="absolute bottom-0 right-0 w-60 h-60 lg:w-96 lg:h-96 z-10 rotate-180 opacity-10">
+          <img
+            src={CornerDesign2}
+            alt="Wooden corner design bottom right"
+            className="w-full h-full object-contain"
+          />
+        </div>
+
+        <div className="max-w-6xl mx-auto px-4  sm:px-6 lg:px-8 relative z-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-up">
               <h2 className="text-4xl font-playfair font-bold text-primary mb-6">
@@ -208,7 +219,7 @@ const About = () => {
                   className="w-64 mx-auto h-64 object-cover  mb-6 "
                 />
                 <div className="text-6xl font-playfair font-bold text-primary mb-4">
-                  38+
+                  15+
                 </div>
                 <div className="text-xl font-semibold text-foreground mb-2">
                   Years of Excellence
@@ -221,9 +232,8 @@ const About = () => {
           </div>
         </div>
       </section>
-
       {/* Timeline Section */}
-      <section className="relative py-16 lg:py-24 bg-muted/30">
+      <section className="relative py-16 lg:py-24 bg-muted/30 border-primary border-x-8">
         <img
           src={ProcessBackgroundImage}
           alt="Process Background"
@@ -297,7 +307,7 @@ const About = () => {
       </section>
 
       {/* Achievements Section */}
-      <section className="py-16 lg:py-24 ">
+      <section className="py-16 lg:py-24 border-primary border-x-8">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-playfair font-bold text-foreground mb-4 animate-fade-up">
@@ -379,7 +389,12 @@ const About = () => {
       </section> */}
 
       {/* Values Section */}
-      <section className="py-16 lg:py-24 bg-muted/30">
+      <section className=" relative py-16 lg:py-24 bg-muted/30 border-primary border-x-8">
+        <img
+          src={Charminar}
+          alt="Process Background"
+          className="absolute inset-0 w-full h-full object-cover opacity-20 bg-blend-multiply blur-sm pointer-events-none -z-10"
+        />
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl lg:text-4xl font-playfair font-bold text-foreground mb-4 animate-fade-up">
@@ -421,7 +436,7 @@ const About = () => {
       </section>
 
       {/* Legacy Quote Section */}
-      <section className="py-16 lg:py-24 bg-gradient-to-r from-secondary/60 to-secondary/80">
+      <section className="py-16 lg:py-24 bg-gradient-to-r from-secondary/60 to-secondary/80 border-primary border-x-8">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-up">
             <div className="text-6xl text-primary mb-6 font-playfair">"</div>
@@ -453,10 +468,10 @@ const About = () => {
           </p>
           <div className="animate-fade-up" style={{ animationDelay: "0.4s" }}>
             <a
-              href="/store/products"
+              href="/pickles"
               className="btn-secondary inline-flex items-center px-8 py-4 rounded-full font-semibold text-lg hover:scale-105 transition-transform"
             >
-              Shop Our Collection
+              Explore Our Collection
               <Sparkles className="ml-2 w-5 h-5" />
             </a>
           </div>

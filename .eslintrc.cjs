@@ -1,9 +1,3 @@
-/**
- * This is intended to be a basic starting point for linting in your app.
- * It relies on recommended configs out of the box for simplicity, but you can
- * and should modify this configuration to best suit your team's needs.
- */
-
 /** @type {import('eslint').Linter.Config} */
 module.exports = {
   root: true,
@@ -21,11 +15,31 @@ module.exports = {
   },
   ignorePatterns: ["!**/.server", "!**/.client"],
 
-  // Base config
   extends: ["eslint:recommended"],
 
+  // IMPORTANT: resolver settings must be here (root)
+  settings: {
+    "import/internal-regex": "^~/",
+    "import/resolver": {
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
+      typescript: {
+        alwaysTryTypes: true,
+        project: "./tsconfig.json",
+      },
+    },
+    react: {
+      version: "detect",
+    },
+    formComponents: ["Form"],
+    linkComponents: [
+      { name: "Link", linkAttribute: "to" },
+      { name: "NavLink", linkAttribute: "to" },
+    ],
+  },
+
   overrides: [
-    // React
     {
       files: ["**/*.{js,jsx,ts,tsx}"],
       plugins: ["react", "jsx-a11y"],
@@ -35,37 +49,12 @@ module.exports = {
         "plugin:react-hooks/recommended",
         "plugin:jsx-a11y/recommended",
       ],
-      settings: {
-        react: {
-          version: "detect",
-        },
-        formComponents: ["Form"],
-        linkComponents: [
-          { name: "Link", linkAttribute: "to" },
-          { name: "NavLink", linkAttribute: "to" },
-        ],
-        "import/resolver": {
-          typescript: {},
-        },
-      },
     },
 
-    // Typescript
     {
       files: ["**/*.{ts,tsx}"],
       plugins: ["@typescript-eslint", "import"],
       parser: "@typescript-eslint/parser",
-      settings: {
-        "import/internal-regex": "^~/",
-        "import/resolver": {
-          node: {
-            extensions: [".ts", ".tsx"],
-          },
-          typescript: {
-            alwaysTryTypes: true,
-          },
-        },
-      },
       extends: [
         "plugin:@typescript-eslint/recommended",
         "plugin:import/recommended",
@@ -73,7 +62,6 @@ module.exports = {
       ],
     },
 
-    // Node
     {
       files: [".eslintrc.cjs"],
       env: {

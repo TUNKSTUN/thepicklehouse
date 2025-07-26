@@ -11,8 +11,14 @@ import { createReadableStreamFromReadable } from "@remix-run/node";
 import { RemixServer } from "@remix-run/react";
 import { isbot } from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
+import { initMongoDB } from "./environments/environment";
 
 const ABORT_DELAY = 5_000;
+
+initMongoDB().catch((error) => {
+  console.error("Failed to initialize MongoDB:", error);
+  process.exit(1);
+});
 
 export default function handleRequest(
   request: Request,
@@ -24,6 +30,7 @@ export default function handleRequest(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   loadContext: AppLoadContext
 ) {
+  // await initMongoDB();
   return isbot(request.headers.get("user-agent") || "")
     ? handleBotRequest(
         request,

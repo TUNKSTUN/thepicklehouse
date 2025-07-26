@@ -21,4 +21,11 @@ export default defineConfig({
     }),
     tsconfigPaths(),
   ],
+  ssr: {
+    noExternal: ["remix-auth", "remix-auth-form"],
+  },
+  build: {
+    assetsInlineLimit: 0, // Ensure large assets like swagger-ui-react are bundled correctly
+  },
+  assetsInclude: ["**/*.yaml"], // Include YAML files as assets
 });

@@ -1,181 +1,207 @@
-import PropTypes from "prop-types";
-import { Filter, X } from "lucide-react";
-import { useState } from "react";
+import { Form, useSearchParams } from "@remix-run/react";
+import { useEffect, useRef } from "react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
+import { Button } from "../ui/button";
+import { Label } from "../ui/label";
 
-const FilterSection = ({
+interface FilterSectionProps {
+  sortBy: string;
+  setSortBy: (value: string) => void;
+  filterSpice: string;
+  setFilterSpice: (value: string) => void;
+  filterVeg: string;
+  setFilterVeg: (value: string) => void;
+  filterSize: string;
+  setFilterSize: (value: string) => void;
+  category: string;
+  setCategory: (value: string) => void;
+}
+
+export default function FilterSection({
   sortBy,
   setSortBy,
   filterSpice,
   setFilterSpice,
   filterVeg,
   setFilterVeg,
-  filterNonVegType,
-  setFilterNonVegType,
   filterSize,
   setFilterSize,
-}) => {
-  const [isFilterOpen, setIsFilterOpen] = useState(false);
+  category,
+  setCategory,
+}: FilterSectionProps) {
+  const [searchParams, setSearchParams] = useSearchParams();
+  const formRef = useRef<HTMLFormElement>(null);
 
-  const resetFilters = () => {
-    setSortBy("popular");
-    setFilterSpice("all");
-    setFilterVeg("all");
-    setFilterNonVegType("all");
-    setFilterSize("all");
+  // Sync local state with URL query params
+  useEffect(() => {
+    console.log(
+      "FilterSection useEffect - searchParams:",
+      Object.fromEntries(searchParams)
+    );
+    const params = Object.fromEntries(searchParams);
+    setSortBy(params.sortBy || "popular");
+    setFilterSpice(params.filterSpice || "all");
+    setFilterVeg(params.filterVeg || "all");
+    setFilterSize(params.filterSize || "all");
+    setCategory(params.category || "all");
+  }, [
+    searchParams,
+    setSortBy,
+    setFilterSpice,
+    setFilterVeg,
+    setFilterSize,
+    setCategory,
+  ]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const newParams = Object.fromEntries(formData);
+    console.log("FilterSection handleSubmit - newParams:", newParams);
+    setSearchParams(newParams, { replace: true });
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-primary border border-border rounded-lg p-4 mb-8">
-        {/* Mobile Filter Toggle */}
-        <div className="sm:hidden flex items-center justify-between mb-4">
-          <div className="flex items-center gap-2">
-            <Filter className="w-5 h-5 text-primary-foreground" />
-            <span className="font-semibold text-primary-foreground">
-              Filters & Sort
-            </span>
-          </div>
-          <button
-            onClick={() => setIsFilterOpen(!isFilterOpen)}
-            className="text-primary-foreground hover:text-primary-foreground/80"
-            aria-label={isFilterOpen ? "Close filters" : "Open filters"}
-          >
-            {isFilterOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Filter className="w-5 h-5" />
-            )}
-          </button>
-        </div>
-
-        {/* Filter Content */}
-        <div className={`${isFilterOpen ? "block" : "hidden"} sm:block`}>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
-            <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-primary-foreground flex items-center gap-1">
-                <span>Sort By</span>
-              </label>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="bg-background border border-border rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:border-transparent hover:bg-background/90 transition-colors"
-                aria-label="Sort products"
-              >
-                <option value="popular">Popular</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
-                <option value="spice-low">Spice: Mild to Hot</option>
-                <option value="spice-high">Spice: Hot to Mild</option>
-                <option value="rating">Highest Rated</option>
-              </select>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-primary-foreground flex items-center gap-1">
-                <span>Spice Level</span>
-              </label>
-              <select
-                value={filterSpice}
-                onChange={(e) => setFilterSpice(e.target.value)}
-                className="bg-background border border-border rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:border-transparent hover:bg-background/90 transition-colors"
-                aria-label="Filter by spice level"
-              >
-                <option value="all">All Levels</option>
-                <option value="1">Mild (1🌶️)</option>
-                <option value="2">Medium (2🌶️)</option>
-                <option value="3">Hot (3🌶️)</option>
-                <option value="4">Very Hot (4🌶️)</option>
-                <option value="5">Extremely Hot (5🌶️)</option>
-              </select>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-primary-foreground flex items-center gap-1">
-                <span>Diet</span>
-              </label>
-              <select
-                value={filterVeg}
-                onChange={(e) => setFilterVeg(e.target.value)}
-                className="bg-background border border-border rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:border-transparent hover:bg-background/90 transition-colors"
-                aria-label="Filter by diet type"
-              >
-                <option value="all">All</option>
-                <option value="veg">Vegetarian</option>
-                <option value="non-veg">Non-Vegetarian</option>
-              </select>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-primary-foreground flex items-center gap-1">
-                <span>Non-Veg Type</span>
-              </label>
-              <select
-                value={filterNonVegType}
-                onChange={(e) => setFilterNonVegType(e.target.value)}
-                className="bg-background border border-border rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:border-transparent hover:bg-background/90 transition-colors"
-                aria-label="Filter by non-vegetarian type"
-              >
-                <option value="all">All</option>
-                <option value="Chicken">Chicken</option>
-                <option value="Seafood">Seafood</option>
-                <option value="Mutton">Mutton</option>
-              </select>
-            </div>
-
-            <div className="flex flex-col gap-2">
-              <label className="text-sm font-medium text-primary-foreground flex items-center gap-1">
-                <span>Size</span>
-              </label>
-              <select
-                value={filterSize}
-                onChange={(e) => setFilterSize(e.target.value)}
-                className="bg-background border border-border rounded-md px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:border-transparent hover:bg-background/90 transition-colors"
-                aria-label="Filter by size"
-              >
-                <option value="all">All Sizes</option>
-                <option value="250g">250g</option>
-                <option value="300g">300g</option>
-                <option value="400g">400g</option>
-                <option value="500g">500g</option>
-              </select>
-            </div>
-          </div>
-
-          <div className="mt-4 flex justify-end">
-            <button
-              onClick={resetFilters}
-              className="bg-white text-primary px-4 py-2 rounded-md border border-border hover:bg-background/90 transition-colors text-sm font-medium"
-              aria-label="Reset all filters"
-            >
-              Reset Filters
-            </button>
-          </div>
-        </div>
+    <Form
+      method="get"
+      className="mb-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4"
+      ref={formRef}
+      onSubmit={handleSubmit}
+      key={searchParams.toString()}
+    >
+      <div>
+        <Label
+          htmlFor="sortBy"
+          className="block text-sm font-medium text-foreground"
+        >
+          Sort By
+        </Label>
+        <Select name="sortBy" value={sortBy} onValueChange={setSortBy}>
+          <SelectTrigger>
+            <SelectValue placeholder="Sort By" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="popular">Popular</SelectItem>
+            <SelectItem value="price-low">Price: Low to High</SelectItem>
+            <SelectItem value="price-high">Price: High to Low</SelectItem>
+            <SelectItem value="spice-low">Spice: Low to High</SelectItem>
+            <SelectItem value="spice-high">Spice: High to Low</SelectItem>
+            <SelectItem value="rating">Rating</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
-    </div>
+
+      <div>
+        <Label
+          htmlFor="filterSpice"
+          className="block text-sm font-medium text-foreground"
+        >
+          Spice Level
+        </Label>
+        <Select
+          name="filterSpice"
+          value={filterSpice}
+          onValueChange={setFilterSpice}
+        >
+          <SelectTrigger>
+            <SelectValue placeholder="Spice Level" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All</SelectItem>
+            <SelectItem value="1">Mild</SelectItem>
+            <SelectItem value="2">Medium</SelectItem>
+            <SelectItem value="3">Hot</SelectItem>
+            <SelectItem value="4">Extra Hot</SelectItem>
+            <SelectItem value="5">Extreme</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div>
+        <Label
+          htmlFor="filterVeg"
+          className="block text-sm font-medium text-foreground"
+        >
+          Type
+        </Label>
+        <Select name="filterVeg" value={filterVeg} onValueChange={setFilterVeg}>
+          <SelectTrigger>
+            <SelectValue placeholder="Type" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All</SelectItem>
+            <SelectItem value="veg">Vegetarian</SelectItem>
+            <SelectItem value="non-veg">Non-Vegetarian</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div>
+        <Label
+          htmlFor="filterSize"
+          className="block text-sm font-medium text-foreground"
+        >
+          Size
+        </Label>
+        <Select
+          name="filterSize"
+          value={filterSize}
+          onValueChange={setFilterSize}
+        >
+          <SelectTrigger>
+            <SelectValue placeholder="Size" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All</SelectItem>
+            <SelectItem value="small">Small</SelectItem>
+            <SelectItem value="medium">Medium</SelectItem>
+            <SelectItem value="large">Large</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div>
+        <Label
+          htmlFor="category"
+          className="block text-sm font-medium text-foreground"
+        >
+          Category
+        </Label>
+        <Select name="category" value={category} onValueChange={setCategory}>
+          <SelectTrigger>
+            <SelectValue placeholder="Category" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All</SelectItem>
+            <SelectItem value="pickle">Pickle</SelectItem>
+            <SelectItem value="sauce">Sauce</SelectItem>
+            <SelectItem value="chutney">Chutney</SelectItem>
+          </SelectContent>
+        </Select>
+      </div>
+
+      <div className="col-span-1 sm:col-span-2 lg:col-span-5 flex gap-4 mt-4">
+        <Button
+          type="submit"
+          className="flex-1 bg-primary text-white hover:bg-primary/90"
+        >
+          Apply Filters
+        </Button>
+        <Button
+          type="button"
+          onClick={() => setSearchParams({}, { replace: true })}
+          className="flex-1"
+          variant="outline"
+        >
+          Clear Filters
+        </Button>
+      </div>
+    </Form>
   );
-};
-
-FilterSection.propTypes = {
-  sortBy: PropTypes.oneOf([
-    "popular",
-    "price-low",
-    "price-high",
-    "spice-low",
-    "spice-high",
-    "rating",
-  ]).isRequired,
-  setSortBy: PropTypes.func.isRequired,
-  filterSpice: PropTypes.oneOf(["all", "1", "2", "3", "4", "5"]).isRequired,
-  setFilterSpice: PropTypes.func.isRequired,
-  filterVeg: PropTypes.oneOf(["all", "veg", "non-veg"]).isRequired,
-  setFilterVeg: PropTypes.func.isRequired,
-  filterNonVegType: PropTypes.oneOf(["all", "Chicken", "Seafood", "Mutton"])
-    .isRequired,
-  setFilterNonVegType: PropTypes.func.isRequired,
-  filterSize: PropTypes.oneOf(["all", "250g", "300g", "400g", "500g"])
-    .isRequired,
-  setFilterSize: PropTypes.func.isRequired,
-};
-
-export default FilterSection;
+}

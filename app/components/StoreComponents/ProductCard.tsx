@@ -1,121 +1,76 @@
-import React, { useState } from "react";
-import { Star, Flame, TrendingUp, Heart } from "lucide-react";
-import { Link } from "@remix-run/react";
+import { Button } from "~/components/ui/button";
+import { Product } from "~/types/Product";
+import { Link } from "react-router-dom"; // or use `next/link` for Next.js
 
-const ProductCard = ({ product, onAddToCart }) => {
-  const [isLiked, setIsLiked] = useState(false);
-
-  const getSpiceIndicator = (level) => {
-    return Array.from({ length: 5 }, (_, i) => (
-      <Flame
-        key={i}
-        className={`w-3 h-3 ${
-          i < level ? "text-red-500 fill-current" : "text-gray-300"
-        }`}
-      />
-    ));
+interface ProductCardProps {
+  product: {
+    id: string;
+    name: string;
+    imageUrl: string;
+    price: number;
+    originalPrice?: number | null;
+    discount?: number;
+    popular?: boolean;
+    nonVegType?: string;
   };
+  onAddToCart: () => void;
+  onAddToWishlist: () => void;
+}
 
-  const discount = product.originalPrice
-    ? Math.round(
-        ((product.originalPrice - product.price) / product.originalPrice) * 100
-      )
-    : 0;
-
+export default function ProductCard({
+  product,
+  onAddToCart,
+  onAddToWishlist,
+}: ProductCardProps) {
   return (
-    <div className="bg-card border border-border rounded-lg overflow-hidden product-card group">
-      <div className="relative">
+    <div className="border rounded-lg p-4 bg-white shadow-sm hover:shadow-md transition-shadow">
+      <Link to={`/store/product/${product.id}`} className="block">
         <img
-          src={product.image}
+          src={product.imageUrl}
           alt={product.name}
-          className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-48 object-cover rounded mb-4"
         />
-        <div className="absolute top-3 left-3 flex gap-2">
-          {product.popular && (
-            <div className="bg-primary text-primary-foreground px-2 py-1 rounded-full text-xs font-semibold flex items-center gap-1">
-              <TrendingUp className="w-3 h-3" />
-              Popular
-            </div>
-          )}
-          <div
-            className={`px-2 py-1 rounded-full text-xs font-semibold flex items-center gap-1 ${
-              product.isVeg
-                ? "bg-green-500 text-white"
-                : "bg-red-500 text-white"
-            }`}
-          >
-            {product.isVeg ? "Veg" : "Non-Veg"}
-          </div>
-        </div>
-        {discount > 0 && (
-          <div className="absolute top-3 right-3 bg-destructive text-destructive-foreground px-2 py-1 rounded-full text-xs font-bold">
-            {discount}% OFF
-          </div>
-        )}
-        <button
-          onClick={() => setIsLiked(!isLiked)}
-          className="absolute bottom-3 right-3 bg-background/80 backdrop-blur-sm p-2 rounded-full transition-all"
-        >
-          <Heart
-            className={`w-4 h-4 ${
-              isLiked ? "text-red-500 fill-current" : "text-muted-foreground"
-            }`}
-          />
-        </button>
-      </div>
-
-      <div className="p-4">
-        <div className="flex justify-between items-start mb-2">
-          <Link to={`/store/product/${product.id}`}>
-            <h3 className="font-playfair font-semibold text-lg text-foreground line-clamp-1">
-              {product.name}
-            </h3>
-            <div className="flex items-center gap-1 text-yellow-500">
-              <Star className="w-4 h-4 fill-current" />
-              <span className="text-sm text-muted-foreground">
-                {product.rating}
-              </span>
-            </div>
-          </Link>
-        </div>
-
-        <p className="text-muted-foreground text-sm mb-3 line-clamp-2">
-          {product.description}
+        <h3 className="text-lg font-semibold hover:text-primary">
+          {product.name}
+        </h3>
+        <p className="text-sm text-muted-foreground hover:text-primary">
+          {product.nonVegType
+            ? `Non-Veg (${product.nonVegType})`
+            : "Vegetarian"}
         </p>
-
-        <div className="flex items-center justify-between mb-3">
-          <div className="flex items-center gap-1">
-            <span className="text-xs text-muted-foreground">Spice Level:</span>
-            <div className="flex gap-0.5">
-              {getSpiceIndicator(product.spiceLevel)}
-            </div>
-          </div>
-          <span className="text-xs text-muted-foreground">
-            {product.reviews} reviews
-          </span>
-        </div>
-
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="text-xl font-bold text-foreground">
-              ₹{product.price}
-            </span>
-            {product.originalPrice && (
-              <span className="text-sm text-muted-foreground line-through">
-                ₹{product.originalPrice}
+      </Link>
+      <div className="flex items-center justify-between mt-2">
+        <div className="space-x-2">
+          {product.price != null &&
+            product.price !== "" &&
+            !isNaN(Number(product.price)) &&
+            Number(product.price) >= 0 && (
+              <span className="text-lg font-bold text-primary">
+                ₹{Number(product.price).toFixed(2)}
               </span>
             )}
-          </div>
-          <button
-            onClick={() => onAddToCart(product)}
-            className="btn-hero text-sm px-4 py-2"
-          >
-            Add to Cart
-          </button>
+          {product.discount &&
+            product.originalPrice != null &&
+            product.originalPrice !== "" &&
+            !isNaN(Number(product.originalPrice)) &&
+            Number(product.originalPrice) > 0 && (
+              <span className="text-sm text-muted-foreground line-through tracking-wider">
+                ₹{Number(product.originalPrice).toFixed(2)}
+              </span>
+            )}
         </div>
+        {product.popular && (
+          <span className="text-sm text-primary font-semibold">Popular</span>
+        )}
+      </div>
+      <div className="flex gap-2 mt-4">
+        <Button onClick={onAddToCart} className="flex-1 bg-primary text-white">
+          Add to Cart
+        </Button>
+        <Button onClick={onAddToWishlist} variant="outline" className="flex-1">
+          Wishlist
+        </Button>
       </div>
     </div>
   );
-};
-
-export default ProductCard;
+}

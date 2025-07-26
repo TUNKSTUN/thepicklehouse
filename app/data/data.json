@@ -1,0 +1,571 @@
+{
+  "profile": {
+    "user": {
+      "name": "Yahya Khan",
+      "email": "yahya@example.com",
+      "phone": "9876543210",
+      "address": "Hyderabad, India",
+      "bank": {
+        "accountNumber": "XXXX-XXXX-XXXX-1234",
+        "ifsc": "HDFC0001234",
+        "holder": "Yahya Khan"
+      }
+    }
+  },
+  "navbar": {
+    "logo": {
+      "src": "/assets/thop_logo2.png",
+      "alt": "The House of Pickle logo"
+    },
+    "navigation": [
+      { "name": "Home", "href": "/home" },
+      { "name": "About", "href": "/about" },
+      { "name": "Products", "href": "/store/products" },
+      { "name": "Contact", "href": "/contact" },
+      { "name": "Profile", "href": "/profile" }
+    ]
+  },
+  "cart": {
+    "items": [
+      {
+        "id": 1,
+        "name": "Traditional Mango Pickle",
+        "description": "Authentic Hyderabadi style mango pickle",
+        "price": 299,
+        "originalPrice": 349,
+        "quantity": 2,
+        "image": "/assets/thop2.png",
+        "inStock": true,
+        "category": "Mango"
+      },
+      {
+        "id": 2,
+        "name": "Fiery Red Chilli Pickle",
+        "description": "For spice lovers - intense heat with bold flavors",
+        "price": 249,
+        "originalPrice": null,
+        "quantity": 1,
+        "image": "/assets/thop2.png",
+        "inStock": true,
+        "category": "Chilli"
+      },
+      {
+        "id": 4,
+        "name": "Lemon Pickle",
+        "description": "Tangy and aromatic lemon pickle",
+        "price": 179,
+        "originalPrice": null,
+        "quantity": 3,
+        "image": "/assets/thop2.png",
+        "inStock": true,
+        "category": "Lemon"
+      }
+    ],
+    "promoCodes": [
+      {
+        "code": "PICKLE10",
+        "discountPercent": 10
+      }
+    ],
+    "shipping": {
+      "freeShippingThreshold": 500,
+      "shippingFee": 50
+    }
+  },
+  "wishlist": {
+    "items": [
+      {
+        "id": 1,
+        "name": "Traditional Mango Pickle",
+        "description": "Authentic Hyderabadi style mango pickle",
+        "price": 299,
+        "originalPrice": 349,
+        "image": "/assets/thop2.png",
+        "inStock": true,
+        "category": "Mango"
+      },
+      {
+        "id": 2,
+        "name": "Fiery Red Chilli Pickle",
+        "description": "For spice lovers - intense heat with bold flavors",
+        "price": 249,
+        "originalPrice": null,
+        "image": "/assets/thop2.png",
+        "inStock": true,
+        "category": "Chilli"
+      },
+      {
+        "id": 4,
+        "name": "Lemon Pickle",
+        "description": "Tangy and aromatic lemon pickle",
+        "price": 179,
+        "originalPrice": null,
+        "image": "/assets/thop2.png",
+        "inStock": true,
+        "category": "Lemon"
+      }
+    ]
+  },
+  "recommendedProducts": [
+    {
+      "id": 5,
+      "name": "Recommended Pickle 1",
+      "description": "Delicious traditional recipe",
+      "price": 199,
+      "image": "/assets/thop2.png",
+      "inStock": true,
+      "category": "Other"
+    },
+    {
+      "id": 6,
+      "name": "Recommended Pickle 2",
+      "description": "Delicious traditional recipe",
+      "price": 229,
+      "image": "/assets/thop2.png",
+      "inStock": true,
+      "category": "Other"
+    },
+    {
+      "id": 7,
+      "name": "Recommended Pickle 3",
+      "description": "Delicious traditional recipe",
+      "price": 259,
+      "image": "/assets/thop2.png",
+      "inStock": true,
+      "category": "Other"
+    }
+  ],
+  "about": {
+    "hero": {
+      "backgroundImage": "/assets/aunty_masala_making2.png",
+      "title": "Our Story",
+      "subtitle": "Rooted in tradition, stirred with love — sharing Hyderabad’s enduring flavors, one handcrafted jar at a time."
+    },
+    "story": {
+      "title": "From a Hyderabadi Kitchen to Your Table",
+      "paragraphs": [
+        "Our story began in the vibrant lanes of Old Hyderabad, where the art of pickle-making was perfected in a modest kitchen. The rhythmic chopping of fresh vegetables, the aromatic roasting of spices, and the careful layering of ingredients filled the air with irresistible scents.",
+        "What started as a way to preserve seasonal produce for a family soon became a cherished tradition. The secret lay in time-honored recipes and the dedication poured into every jar. Neighbors were drawn by the tantalizing aromas, eager to taste the legendary mango pickle or fiery mixed vegetable pickle.",
+        "By the early 1990s, word had spread beyond the neighborhood. Local shopkeepers began requesting regular supplies, turning a small-scale passion into a thriving word-of-mouth business. Customers still share stories of traveling across the city to secure a jar of our iconic pickles.",
+        "Four decades later, we continue this legacy in a modern facility, using the same recipes preserved on yellowed paper. We source ingredients from trusted farming families and approach each jar with the same devotion that made our pickles a household name in Hyderabad."
+      ],
+      "legacy": {
+        "image": "/assets/20250719_1721_Grandmother's Pickle Preparation_simple_compose_01k0h872pafgrtv7560nvppzck.png",
+        "years": "15+",
+        "label": "Years of Excellence",
+        "description": "Serving authentic Hyderabadi flavors since 1985"
+      }
+    },
+    "timeline": {
+      "title": "Our Journey Through Time",
+      "subtitle": "From a small kitchen in Old City to kitchens across the country—here's how our story unfolded.",
+      "backgroundImage": "/assets/home/process_background_image.png",
+      "items": [
+        {
+          "year": "2018",
+          "title": "Official Launch",
+          "description": "The House of Pickles was established as a family business, moving to a dedicated facility while preserving traditional methods.",
+          "image": "/assets/thop2.png"
+        },
+        {
+          "year": "2022",
+          "title": "Digital Presence",
+          "description": "Launch of our online store, bringing authentic Hyderabadi flavors to customers across India and beyond.",
+          "image": "/assets/thop2.png"
+        },
+        {
+          "year": "2025",
+          "title": "Today",
+          "description": "Launch of our online store, bringing authentic Hyderabadi flavors to customers across India and beyond. Proudly serving thousands of families while staying true to our roots, with the same passion and commitment to quality.",
+          "image": "/assets/thop2.png"
+        }
+      ]
+    },
+    "achievements": {
+      "title": "Our Achievements",
+      "subtitle": "Numbers that tell the story of trust, quality, and the love our customers have for our pickles.",
+      "items": [
+        {
+          "icon": "Star",
+          "number": "500+",
+          "label": "Happy Customers in Hyderabad"
+        },
+        {
+          "icon": "Globe",
+          "number": "1",
+          "label": "City We Proudly Serve"
+        },
+        {
+          "icon": "Award",
+          "number": "20+",
+          "label": "Authentic Pickle Varieties"
+        },
+        {
+          "icon": "Clock",
+          "number": "20+",
+          "label": "Years of Family Tradition"
+        }
+      ]
+    },
+    "process": {
+      "title": "Our Traditional Process",
+      "subtitle": "Every jar of our pickles goes through a meticulous process that honors traditional methods while ensuring the highest quality standards.",
+      "items": [
+        {
+          "icon": "Leaf",
+          "title": "Sourcing",
+          "description": "We carefully select the freshest vegetables and fruits from trusted local farmers who share our commitment to quality."
+        },
+        {
+          "icon": "ChefHat",
+          "title": "Preparation",
+          "description": "Each ingredient is meticulously cleaned, cut, and prepared according to time-honored techniques."
+        },
+        {
+          "icon": "Sparkles",
+          "title": "Spice Blending",
+          "description": "Our signature spice blends are prepared fresh daily, roasted to perfection, and combined in precise measurements."
+        },
+        {
+          "icon": "Heart",
+          "title": "Crafting",
+          "description": "Every batch is lovingly prepared by hand, ensuring each jar captures the authentic taste of traditional Hyderabadi pickles."
+        }
+      ]
+    },
+    "values": {
+      "title": "Our Values",
+      "subtitle": "The principles that guide everything we do, from sourcing ingredients to delivering the final product.",
+      "items": [
+        {
+          "icon": "Heart",
+          "title": "Made with Love",
+          "description": "Every jar is crafted with care, following traditional recipes passed down through generations."
+        },
+        {
+          "icon": "Leaf",
+          "title": "Natural Ingredients",
+          "description": "We source the finest ingredients directly from local farmers, ensuring purity and freshness."
+        },
+        {
+          "icon": "Award",
+          "title": "Quality Assured",
+          "description": "Each batch undergoes rigorous quality checks to maintain our high standards of excellence."
+        },
+        {
+          "icon": "Users",
+          "title": "Family Legacy",
+          "description": "A family business that has been serving authentic flavors for over three decades."
+        }
+      ]
+    },
+    "quote": {
+      "text": "A pickle is not just food—it is memory, tradition, and love preserved in a jar. When you taste our pickles, you taste the stories of generations.",
+      "attribution": "Our family's philosophy, carried forward through generations"
+    },
+    "cta": {
+      "title": "Taste the Tradition",
+      "subtitle": "Experience the authentic flavors that have been delighting families for generations. Join thousands of happy customers who have made our pickles a cherished part of their dining traditions.",
+      "buttonText": "Shop Our Collection",
+      "buttonIcon": "Sparkles",
+      "href": "/store/products"
+    }
+  },
+  "contact": {
+    "hero": {
+      "backgroundImage": "/assets/home/process_background_image.png",
+      "title": "Get in Touch",
+      "subtitle": "We're here to answer your questions and share our love for authentic pickles with you."
+    },
+    "contactInfo": {
+      "title": "How to Reach Us",
+      "items": [
+        {
+          "icon": "MapPin",
+          "title": "Our Address",
+          "details": "Sultan Street, Old City, Hyderabad, Telangana 500002, India"
+        },
+        {
+          "icon": "Phone",
+          "title": "Phone Number",
+          "details": "+91 123 456 7890",
+          "href": "tel:+911234567890"
+        },
+        {
+          "icon": "Mail",
+          "title": "Email",
+          "details": "contact@houseofpickles.in",
+          "href": "mailto:contact@houseofpickles.in"
+        },
+        {
+          "icon": "Instagram",
+          "title": "Follow Us",
+          "details": "@houseofpickles",
+          "href": "https://www.instagram.com/houseofpickles"
+        }
+      ]
+    }
+  },
+  "home": {
+    "hero": {
+      "component": "Hero"
+    },
+    "brandStory": {
+      "backgroundImage": "/assets/background-1.png",
+      "title": "Authentic Flavors from the Heart of Hyderabad",
+      "paragraphs": [
+        "For over three generations, our family has been crafting pickles using time-honored recipes that capture the essence of Andhra cuisine. Each jar is lovingly prepared with hand-picked ingredients and traditional methods that preserve the authentic taste of home.",
+        "From the tangy burst of raw mango to the fiery kick of red chilies, every pickle tells a story of tradition, love, and the rich culinary heritage of South India."
+      ],
+      "features": [
+        {
+          "title": "100% Natural",
+          "description": "No artificial preservatives or colors",
+          "icon": "/assets/home/natural.png"
+        },
+        {
+          "title": "Traditional Recipe",
+          "description": "Passed down through generations",
+          "icon": "/assets/home/traditional_reciepe.png"
+        },
+        {
+          "title": "Premium Oil",
+          "description": "Cold-pressed sesame & mustard oil",
+          "icon": "/assets/home/premium_oils.png"
+        },
+        {
+          "title": "Hand-picked Spices",
+          "description": "Sourced directly from local farms",
+          "icon": "/assets/home/handpicked_spices.png"
+        }
+      ],
+      "image": "/assets/thop2.png"
+    },
+    "pickleVarieties": {
+      "component": "PickleCarousel",
+      "items": [
+        {
+          "name": "Mango Pickle",
+          "description": "Sweet and tangy raw mango pickle with traditional spices",
+          "image": "/assets/thop2.png",
+          "color": "from-yellow-400 to-orange-500"
+        },
+        {
+          "name": "Lemon Pickle",
+          "description": "Zesty lemon pickle that adds punch to every meal",
+          "image": "/assets/thop2.png",
+          "color": "from-yellow-300 to-lime-400"
+        },
+        {
+          "name": "Gongura Pickle",
+          "description": "Andhra's signature sorrel leaves pickle - a true delicacy",
+          "image": "/assets/thop2.png",
+          "color": "from-green-400 to-emerald-600"
+        },
+        {
+          "name": "Red Chili Pickle",
+          "description": "Fiery hot red chili pickle for spice lovers",
+          "image": "/assets/thop2.png",
+          "color": "from-red-500 to-rose-600"
+        },
+        {
+          "name": "Mixed Vegetable",
+          "description": "A medley of seasonal vegetables in aromatic spices",
+          "image": "/assets/thop2.png",
+          "color": "from-purple-400 to-indigo-500"
+        },
+        {
+          "name": "Garlic Pickle",
+          "description": "Pungent garlic pickle with incredible health benefits",
+          "image": "/assets/thop2.png",
+          "color": "from-amber-400 to-orange-600"
+        }
+      ]
+    },
+    "process": {
+      "title": "Our Traditional Process",
+      "subtitle": "Every jar of our pickles goes through a meticulous process that honors traditional methods while ensuring the highest quality standards.",
+      "backgroundImage": "/assets/home/process_background_image.png",
+      "items": [
+        {
+          "icon": "Leaf",
+          "title": "Sourcing",
+          "description": "We carefully select the freshest vegetables and fruits from trusted local farmers who share our commitment to quality."
+        },
+        {
+          "icon": "ChefHat",
+          "title": "Preparation",
+          "description": "Each ingredient is meticulously cleaned, cut, and prepared according to time-honored techniques."
+        },
+        {
+          "icon": "Sparkles",
+          "title": "Spice Blending",
+          "description": "Our signature spice blends are prepared fresh daily, roasted to perfection, and combined in precise measurements."
+        },
+        {
+          "icon": "Heart",
+          "title": "Crafting",
+          "description": "Every batch is lovingly prepared by hand, ensuring each jar captures the authentic taste of traditional Hyderabadi pickles."
+        }
+      ]
+    },
+    "testimonials": {
+      "title": "What Our Customers Say",
+      "subtitle": "Don't just take our word for it - hear from our satisfied customers",
+      "items": [
+        {
+          "text": "Absolutely authentic taste! Takes me back to my childhood in Hyderabad. The gongura pickle is exceptional.",
+          "author": "Priya Sharma",
+          "location": "Mumbai",
+          "rating": 5
+        },
+        {
+          "text": "Best pickle I've ever ordered online. The spices are perfectly balanced and the oil quality is outstanding.",
+          "author": "Rajesh Kumar",
+          "location": "Bangalore",
+          "rating": 5
+        },
+        {
+          "text": "My entire family is addicted to these pickles! The mango one is our absolute favorite. Quick delivery too.",
+          "author": "Kavitha Reddy",
+          "location": "Chennai",
+          "rating": 5
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to Experience Authentic Flavors?",
+      "subtitle": "Join thousands of satisfied customers who have made our pickles a staple in their homes. Order now and taste the difference tradition makes!",
+      "buttons": [
+        {
+          "text": "Shop Now",
+          "href": "/store/products",
+          "style": "bg-white text-primary"
+        },
+        {
+          "text": "Learn More",
+          "href": "/about",
+          "style": "border-2 border-white text-white"
+        }
+      ]
+    }
+  },
+  "product": {
+    "details": {
+      "id": 1,
+      "name": "Traditional Mango Pickle",
+      "description": "Authentic Hyderabadi style mango pickle with aromatic spices",
+      "longDescription": "Our Traditional Mango Pickle is crafted using time-honored recipes passed down through generations. Made with the finest raw mangoes, carefully selected spices, and pure mustard oil, this pickle delivers an authentic taste that transports you to the heart of Hyderabad. Each jar is prepared in small batches to ensure maximum freshness and flavor.",
+      "price": 299,
+      "originalPrice": 349,
+      "spiceLevel": 3,
+      "rating": 4.8,
+      "reviews": 124,
+      "popular": true,
+      "category": "Mango",
+      "images": [
+        "/assets/thop2.png",
+        "/assets/thop2.png",
+        "/assets/thop2.png",
+        "/assets/thop2.png"
+      ],
+      "ingredients": [
+        "Raw Mangoes",
+        "Mustard Oil",
+        "Red Chili Powder",
+        "Turmeric",
+        "Fenugreek Seeds",
+        "Mustard Seeds",
+        "Asafoetida",
+        "Salt"
+      ],
+      "nutritionalInfo": {
+        "servingSize": "1 tbsp (15g)",
+        "calories": 25,
+        "fat": "2g",
+        "sodium": "180mg",
+        "carbs": "2g",
+        "fiber": "1g"
+      },
+      "features": [
+        {
+          "text": "No Preservatives",
+          "icon": "Shield",
+          "iconColor": "text-green-500"
+        },
+        {
+          "text": "Traditional Recipe",
+          "icon": "Award",
+          "iconColor": "text-primary"
+        },
+        {
+          "text": "Free Shipping",
+          "icon": "Truck",
+          "iconColor": "text-blue-500"
+        },
+        {
+          "text": "Fresh Daily",
+          "icon": "Clock",
+          "iconColor": "text-orange-500"
+        }
+      ],
+      "inStock": true,
+      "stockCount": 45,
+      "weight": "400g"
+    },
+    "reviews": [
+      {
+        "id": 1,
+        "name": "Priya Sharma",
+        "rating": 5,
+        "date": "2 weeks ago",
+        "comment": "Absolutely delicious! Tastes just like my grandmother's homemade pickle. The spice level is perfect and the mango pieces are so tender.",
+        "verified": true
+      },
+      {
+        "id": 2,
+        "name": "Rajesh Kumar",
+        "rating": 4,
+        "date": "1 month ago",
+        "comment": "Great quality pickle with authentic flavors. Packaging was excellent and delivery was quick. Will definitely order again!",
+        "verified": true
+      },
+      {
+        "id": 3,
+        "name": "Anita Reddy",
+        "rating": 5,
+        "date": "3 weeks ago",
+        "comment": "This pickle brings back so many childhood memories. The taste is incredible and you can tell it's made with love and care.",
+        "verified": false
+      }
+    ],
+    "breadcrumb": {
+      "text": "Back to Products",
+      "href": "/store/products",
+      "icon": "ArrowLeft"
+    },
+    "tabs": ["description", "ingredients", "nutrition", "reviews"]
+  },
+  "login": {
+    "title": "Welcome Back to The House of Pickles",
+    "subtitle": "Log in to explore our authentic Hyderabadi pickles",
+    "clipart": "/assets/pickle-clipart.png",
+    "googleSso": {
+      "text": "Sign in with Google",
+      "icon": "Globe"
+    },
+    "loginButton": {
+      "text": "Log In"
+    },
+    "links": [
+      {
+        "text": "Forgot Password?",
+        "href": "/forgot-password"
+      },
+      {
+        "text": "Don't have an account? Sign Up",
+        "href": "/signup"
+      }
+    ]
+  }
+}
