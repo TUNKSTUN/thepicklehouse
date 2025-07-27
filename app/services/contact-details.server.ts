@@ -39,7 +39,7 @@ export class ContactDetailsService {
         throw new Error("Address, phone, and email are required");
       }
 
-      const contactId = generateId(EntityType.ContactDetails);
+      const contactId = generateId(EntityType.Cnt);
       const contactDetails = await ContactDetailsModel.findOneAndUpdate(
         {},
         {

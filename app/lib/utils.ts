@@ -15,6 +15,7 @@ export enum EntityType {
   Admin = "ADM",
   Guest = "GST",
   Cart = "CART",
+  Cnt = "CNT",
 }
 
 export function generateId(entityType: EntityType): string {
