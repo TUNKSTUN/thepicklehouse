@@ -10,10 +10,8 @@ export const PickleCarousel = () => {
   const { products } = useRouteLoaderData<typeof loader>("routes/_thop");
   const productsFeatured = [];
   for (let i = 0; i < products.length; i++) {
-    console.log(products[i].isFeatured);
     if (products[i].isFeatured === true) {
       productsFeatured.push(products[i]);
-      console.log(productsFeatured);
     }
   }
   const defaultPickles = [

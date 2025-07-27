@@ -18,7 +18,6 @@ const isValidEmail = (email: string) => /^\S+@\S+\.\S+$/.test(email);
 export const loader: LoaderFunction = async ({ request }) => {
   try {
     const contactDetails = await ContactDetailsService.getContactDetails();
-    console.log("Contact Details:", contactDetails); // Debug log
     return json({
       contactDetails,
     });
