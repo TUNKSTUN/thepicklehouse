@@ -24,7 +24,7 @@ export class ContactService {
 
       // Send email notification
       await sendContactEmail({
-        to_email: "contact@houseofpickles.in",
+        to_email: "thehouseofhappiness@gmail.com",
         from_name: name,
         from_email: email,
         message,

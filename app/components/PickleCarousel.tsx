@@ -3,6 +3,7 @@ import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { loader } from "../routes/_thop";
 import { Link, useRouteLoaderData } from "@remix-run/react";
+import ProcessBackgroundImage from "../assets/Gemini_Generated_Image_iknjnsiknjnsiknj.jpg"
 import MockupImage from "../assets/thop2.png";
 
 export const PickleCarousel = () => {
@@ -77,11 +78,16 @@ export const PickleCarousel = () => {
   const getNextIndex = () => (currentSlide + 1) % pickles.length;
 
   return (
-    <section className="py-12 sm:py-16 lg:py-20 bg-white overflow-hidden">
+    <section className="relative py-12 sm:py-16 lg:py-20 bg-white/80 overflow-hidden">
+      <img
+        src={ProcessBackgroundImage}
+        alt="Process Background"
+        className="absolute inset-0 w-full h-full object-cover opacity-20  pointer-events-none z-0"
+      />
       <div className="container mx-auto px-4 sm:px-6">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-bold text-foreground mb-3 sm:mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-playfair font-bold text-primary mb-3 sm:mb-4">
             Our Pickle Varieties
           </h2>
           <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto font-inter font-light leading-relaxed">
@@ -98,9 +104,8 @@ export const PickleCarousel = () => {
             <div className="absolute left-0 w-48 sm:w-56 h-72 sm:h-80 opacity-40 blur-sm scale-75 transform -translate-x-8">
               <div className="bg-white rounded-xl shadow-lg overflow-hidden h-full">
                 <div
-                  className={`h-2/3 bg-gradient-to-br ${
-                    pickles[getPrevIndex()].color
-                  } p-4 flex items-center justify-center relative overflow-hidden`}
+                  className={`h-2/3 bg-gradient-to-br ${pickles[getPrevIndex()].color
+                    } p-4 flex items-center justify-center relative overflow-hidden`}
                 >
                   <div className="absolute inset-0 bg-white bg-opacity-10 backdrop-blur-sm"></div>
                   <img
@@ -168,9 +173,8 @@ export const PickleCarousel = () => {
             <div className="absolute right-0 w-48 sm:w-56 h-72 sm:h-80 opacity-40 blur-sm scale-75 transform translate-x-8">
               <div className="bg-white rounded-xl shadow-lg overflow-hidden h-full">
                 <div
-                  className={`h-2/3 bg-gradient-to-br ${
-                    pickles[getNextIndex()].color
-                  } p-4 flex items-center justify-center relative overflow-hidden`}
+                  className={`h-2/3 bg-gradient-to-br ${pickles[getNextIndex()].color
+                    } p-4 flex items-center justify-center relative overflow-hidden`}
                 >
                   <div className="absolute inset-0 bg-white bg-opacity-10 backdrop-blur-sm"></div>
                   <img
@@ -211,11 +215,10 @@ export const PickleCarousel = () => {
                 <button
                   key={index}
                   onClick={() => setCurrentSlide(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentSlide
-                      ? "bg-primary scale-125 shadow-lg"
-                      : "bg-gray-300 hover:bg-gray-400 hover:scale-110"
-                  }`}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide
+                    ? "bg-primary scale-125 shadow-lg"
+                    : "bg-gray-300 hover:bg-gray-400 hover:scale-110"
+                    }`}
                 />
               ))}
             </div>

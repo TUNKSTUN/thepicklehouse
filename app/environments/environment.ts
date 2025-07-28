@@ -16,6 +16,11 @@ export const getEnv = () => {
         GOOGLE_API_KEY: process.env.GOOGLE_API_KEY || "",
         RAZORPAY_CLIENTAPI_ID: process.env.RAZORPAY_CLIENTAPI_ID || "",
         RAZORPAY_CLIENTAPI_KEY: process.env.RAZORPAY_CLIENTAPI_KEY || "",
+        SMTP_HOST: process.env.SMTP_HOST,
+        SMTP_PORT: process.env.SMTP_PORT,
+        SMTP_USER: process.env.SMTP_USER,
+        SMTP_PASS: process.env.SMTP_PASS,
+        FROM_EMAIL: process.env.FROM_EMAIL,
     };
 
     // Validate required environment variables

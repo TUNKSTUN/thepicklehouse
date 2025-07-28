@@ -8,7 +8,7 @@ import NaturalIngredients from "../assets/home/natural.png";
 import PremiumOils from "../assets/home/premium_oils.png";
 import HandpickedSpices from "../assets/home/handpicked_spices.png";
 import TraditionalReciepe from "../assets/home/traditional_reciepe.png";
-import { ChefHat, Heart, Leaf, Sparkles } from "lucide-react";
+import { ChefHat, Heart, Leaf, LocateIcon, PinIcon, Sparkles } from "lucide-react";
 import ProcessBackgroundImage from "../assets/home/contact_background_image.png";
 import AuntyWorking from "../assets/aunty-working.webp";
 
@@ -22,7 +22,7 @@ import {
   MdShield,
   MdStar,
 } from "react-icons/md";
-import { GiIndiaGate, GiWheat } from "react-icons/gi";
+import { GiIndiaGate, GiPin, GiWheat } from "react-icons/gi";
 import { RiCustomerService2Fill } from "react-icons/ri";
 
 // export const loader: LoaderFunction = async () => {
@@ -117,19 +117,19 @@ export default function Home() {
     {
       text: "Absolutely authentic taste! Takes me back to my childhood in Hyderabad. The gongura pickle is exceptional.",
       author: "Priya Sharma",
-      location: "Mumbai",
+      location: "Hydrabad",
       rating: 5,
     },
     {
       text: "Best pickle I've ever ordered online. The spices are perfectly balanced and the oil quality is outstanding.",
       author: "Rajesh Kumar",
-      location: "Bangalore",
+      location: "Hyderabad",
       rating: 5,
     },
     {
       text: "My entire family is addicted to these pickles! The mango one is our absolute favorite. Quick delivery too.",
       author: "Kavitha Reddy",
-      location: "Chennai",
+      location: "Hyderabad",
       rating: 5,
     },
   ];
@@ -167,7 +167,7 @@ export default function Home() {
           <img
             src={BackgroundImage}
             alt="Background"
-            className="w-full h-full object-cover opacity-10 pointer-events-none select-none"
+            className="w-full h-full object-cover opacity-20 pointer-events-none select-none"
           />
         </div>
 
@@ -239,7 +239,7 @@ export default function Home() {
       </section>
       {/* Trust & Quality Assurance Section */}
       <section className="relative p-4 bg-primary py-10">
-        <div className="max-w-full   rounded-tr-[100px] rounded-bl-[100px] bg-secondary p-10 overflow-clip flex flex-col items-center justify-center">
+        <div className="max-w-full   rounded-tr-[100px] rounded-bl-[100px] bg-background p-10 overflow-clip flex flex-col items-center justify-center">
           <div className="max-w-6xl py-10 mx-auto">
             {/* Section Header */}
             <motion.div
@@ -444,7 +444,7 @@ export default function Home() {
         <img
           src={ProcessBackgroundImage}
           alt="Process Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-5 pointer-events-none z-0"
+          className="absolute inset-0 w-full h-full object-cover opacity-10 pointer-events-none z-0"
         />
 
         {/* Content Wrapper */}
@@ -474,14 +474,14 @@ export default function Home() {
                   <div className="bg-primary bg-blend-lighten rounded-full p-6 w-20 h-20 mx-auto flex items-center justify-center">
                     <step.icon className="w-8 h-8 text-white" />
                   </div>
-                  <div className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-sm font-bold rounded-full w-8 h-8 flex items-center justify-center">
+                  <div className="absolute md:flex hidden md:-top-2 md:-right-0 -top-8 right-[55%] bg-primary text-primary-foreground text-sm font-bold rounded-full w-8 h-8 items-center justify-center">
                     {index + 1}
                   </div>
                 </div>
                 <h3 className="font-playfair font-semibold text-lg text-foreground mb-3">
                   {step.title}
                 </h3>
-                <p className="text-masala-brown text-sm leading-relaxed">
+                <p className="text-masala-brown text-sm leading-relaxed md:w-full max-w-2xl">
                   {step.description}
                 </p>
               </div>
@@ -520,15 +520,15 @@ export default function Home() {
             {/* Trust Stats */}
             <div className="flex flex-wrap justify-center gap-8 mt-12 mb-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">4.5★</div>
+                <div className="text-3xl font-bold text-secondary">4.5★</div>
                 <div className="text-white/80 text-sm">Average Rating</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">100+</div>
+                <div className="text-3xl font-bold text-secondary">100+</div>
                 <div className="text-white/80 text-sm">Happy Customers</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white">1K+</div>
+                <div className="text-3xl font-bold text-secondary">1K+</div>
                 <div className="text-white/80 text-sm">Jars Sold</div>
               </div>
             </div>
@@ -550,8 +550,8 @@ export default function Home() {
               >
                 {/* Quote Icon */}
                 <div className="absolute -top-4 left-8">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                    <span className="text-white text-lg font-bold">"</span>
+                  <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center">
+                    <span className="text-white text-4xl font-bold">"</span>
                   </div>
                 </div>
 
@@ -586,8 +586,8 @@ export default function Home() {
                     <p className="font-semibold text-primary text-lg">
                       {testimonial.author}
                     </p>
-                    <p className="text-gray-500 text-sm flex items-center justify-center">
-                      <span className="w-2 h-2 bg-gray-400 rounded-full mr-2"></span>
+                    <p className="text-primary text-sm flex items-center gap-2 justify-center">
+                      <GiPin className="w-4" />
                       {testimonial.location}
                     </p>
                   </div>

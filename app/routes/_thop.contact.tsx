@@ -10,7 +10,7 @@ import { json } from "@remix-run/node";
 import { ContactService } from "../services/contact.server";
 import { ContactDetailsService } from "../services/contact-details.server";
 import type { ContactDetails } from "../models/contact-details.model";
-import BackgroundImage from "../assets/aunty_masala_making.png";
+import BackgroundImage from "../assets/table_with_jars.jpg";
 
 // Utility to validate email format
 const isValidEmail = (email: string) => /^\S+@\S+\.\S+$/.test(email);
@@ -121,38 +121,38 @@ export default function ContactPage() {
 
   const contactInfo = contactDetails
     ? [
-        {
-          icon: MapPin,
-          title: "Our Address",
-          details: contactDetails.address || "Not provided",
-          color: "text-spice-red",
-          bgColor: "bg-spice-red/10",
-        },
-        {
-          icon: Phone,
-          title: "Phone Number",
-          details: contactDetails.phone || "Not provided",
-          href: contactDetails.phone ? `tel:${contactDetails.phone}` : null,
-          color: "text-turmeric",
-          bgColor: "bg-turmeric/10",
-        },
-        {
-          icon: Mail,
-          title: "Email",
-          details: contactDetails.email || "Not provided",
-          href: contactDetails.email ? `mailto:${contactDetails.email}` : null,
-          color: "text-primary",
-          bgColor: "bg-primary/10",
-        },
-        {
-          icon: Instagram,
-          title: "Follow Us",
-          details: "@the.houseofpickles",
-          href: contactDetails.instagram || null,
-          color: "text-terracotta",
-          bgColor: "bg-terracotta/10",
-        },
-      ]
+      {
+        icon: MapPin,
+        title: "Our Address",
+        details: contactDetails.address || "Not provided",
+        color: "text-spice-red",
+        bgColor: "bg-spice-red/10",
+      },
+      {
+        icon: Phone,
+        title: "Phone Number",
+        details: contactDetails.phone || "Not provided",
+        href: contactDetails.phone ? `tel:${contactDetails.phone}` : null,
+        color: "text-turmeric",
+        bgColor: "bg-turmeric/10",
+      },
+      {
+        icon: Mail,
+        title: "Email",
+        details: contactDetails.email || "Not provided",
+        href: contactDetails.email ? `mailto:${contactDetails.email}` : null,
+        color: "text-primary",
+        bgColor: "bg-primary/10",
+      },
+      {
+        icon: Instagram,
+        title: "Follow Us",
+        details: "@the.houseofpickles",
+        href: contactDetails.instagram || null,
+        color: "text-terracotta",
+        bgColor: "bg-terracotta/10",
+      },
+    ]
     : fallbackContactInfo;
 
   return (
@@ -312,11 +312,10 @@ export default function ContactPage() {
 
                 {actionData && (
                   <div
-                    className={`p-4 rounded-xl border text-sm font-medium ${
-                      actionData.success
-                        ? "bg-green-50 border-green-200 text-green-800"
-                        : "bg-red-50 border-red-200 text-red-800"
-                    }`}
+                    className={`p-4 rounded-xl border text-sm font-medium ${actionData.success
+                      ? "bg-green-50 border-green-200 text-green-800"
+                      : "bg-red-50 border-red-200 text-red-800"
+                      }`}
                   >
                     {actionData.message || actionData.error}
                   </div>
@@ -340,24 +339,24 @@ export default function ContactPage() {
       </div>
 
       {/* Additional CTA Section */}
-      <section className="relative py-16 bg-secondary/10">
+      <section className="relative bg-gradient-to-tr bg-blend-multiply py-16 from-primary/80 via-primary/80 to-primary/90 border-b border-secondary ">
         <img
           src={BackgroundImage}
           alt="CTA background image"
-          className="w-full h-full inset-0 object-cover absolute opacity-20 blur-sm z-0 pointer-events-none"
+          className="w-full h-full inset-0 object-cover absolute bg-blend-multiply opacity-10 blur-sm z-0 pointer-events-none"
         />
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-2xl lg:text-3xl font-playfair font-bold text-foreground mb-4">
+          <h3 className="text-2xl lg:text-3xl font-playfair font-bold text-secondary mb-4">
             Dive into Pickles
           </h3>
-          <p className="text-lg text-muted-foreground mb-8">
+          <p className="text-lg text-white mb-8">
             Explore our authentic pickle collection and bring home the flavors
             of heritage
           </p>
           <div className="flex flex-row gap-4 justify-center">
             <Button
               asChild
-              className="bg-turmeric hover:bg-turmeric/90 text-masala-brown px-8 py-3 rounded-xl font-semibold"
+              className="bg-primary hover:bg-primary/70 hover:text-white text-white px-8 py-3 rounded-xl font-semibold"
             >
               <Link to="/pickles">Browse Products</Link>
             </Button>
