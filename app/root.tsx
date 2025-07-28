@@ -8,6 +8,7 @@ import {
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
 import { Analytics } from '@vercel/analytics/react';
+import "leaflet/dist/leaflet.css";
 
 
 import "./tailwind.css";

@@ -8,6 +8,7 @@ import { Input } from "../components/ui/input";
 import { Label } from "../components/ui/label";
 import { toast } from "../hooks/use-toast";
 import Monument from "../assets/monuments.png";
+import Logo from "../assets/thop_logo2.png"
 
 export const ComingSoonPage = () => {
   const navigate = useNavigate();
@@ -78,7 +79,7 @@ export const ComingSoonPage = () => {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Clock className="w-12 h-12 text-[hsl(25_15%_45%)]" />
+            <img src={Logo} className="w-24 h-20 text-[hsl(25_15%_45%)]" />
           </motion.div>
           <motion.h1
             className="text-4xl sm:text-5xl font-bold text-[hsl(25_25%_15%)] font-serif mb-4"

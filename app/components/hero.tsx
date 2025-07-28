@@ -65,12 +65,12 @@ export const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-up mb-12"
             style={{ animationDelay: "0.6s" }}
           >
-            <Link to={`/store/products`}>
+            <Link to={`/pickles`}>
               <Button
                 // onClick={}
                 className="group px-8 py-6 bg-secondary hover:bg-amber-400 text-primary font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-amber-500"
               >
-                Shop Our Pickles
+                Explore  Our Pickles
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </Link>

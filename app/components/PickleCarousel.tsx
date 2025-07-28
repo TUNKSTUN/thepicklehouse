@@ -101,7 +101,7 @@ export const PickleCarousel = () => {
           {/* Carousel Track with Side Cards */}
           <div className="relative h-96 sm:h-[420px] flex items-center justify-center">
             {/* Left Side Card (Blurred) */}
-            <div className="absolute left-0 w-48 sm:w-56 h-72 sm:h-80 opacity-40 blur-sm scale-75 transform -translate-x-8">
+            {/* <div className="absolute left-0 w-48 sm:w-56 h-72 sm:h-80 opacity-40 blur-sm scale-75 transform -translate-x-8">
               <div className="bg-white rounded-xl shadow-lg overflow-hidden h-full">
                 <div
                   className={`h-2/3 bg-gradient-to-br ${pickles[getPrevIndex()].color
@@ -123,7 +123,7 @@ export const PickleCarousel = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Center Card (Main Focus) */}
             <div className="w-72 sm:w-80 md:h-96 h-96 z-10 relative">
@@ -169,7 +169,7 @@ export const PickleCarousel = () => {
               </AnimatePresence>
             </div>
 
-            {/* Right Side Card (Blurred) */}
+            {/* Right Side Card (Blurred)
             <div className="absolute right-0 w-48 sm:w-56 h-72 sm:h-80 opacity-40 blur-sm scale-75 transform translate-x-8">
               <div className="bg-white rounded-xl shadow-lg overflow-hidden h-full">
                 <div
@@ -192,11 +192,11 @@ export const PickleCarousel = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             {/* Edge Gradient Overlays */}
-            <div className="absolute -left-4 top-0 w-44 h-full bg-gradient-to-r from-white via-white/50 to-transparent pointer-events-none z-20"></div>
-            <div className="absolute -right-4 top-0 w-44 h-full bg-gradient-to-l from-white via-white/50 to-transparent pointer-events-none z-20"></div>
+            {/* <div className="absolute -left-4 top-0 w-44 h-full bg-gradient-to-r from-white via-white/50 to-transparent pointer-events-none z-20"></div> */}
+            {/* <div className="absolute -right-4 top-0 w-44 h-full bg-gradient-to-l from-white via-white/50 to-transparent pointer-events-none z-20"></div> */}
           </div>
 
           {/* Navigation Controls */}

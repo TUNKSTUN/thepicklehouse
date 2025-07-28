@@ -102,12 +102,12 @@ export const Navbar = () => {
                     className={`font-playfair flex flex-col items-center justify-center font-bold transition-all duration-500 ease-in-out ${
                       isHomePage && !isScrolled
                         ? "text-sm text-secondary"
-                        : "text-xs text-red-900"
+                        : "text-xs text-primary"
                     }`}
                     style={{ lineHeight: "0.8" }}
                   >
-                    <span>The</span>
-                    <span>House of</span>
+                    <span  className={`transition-all duration-500 ease-in-out ${isHomePage && !isScrolled ? "text-white": "text-primary"}`}>The</span>
+                    <span className={`transition-all duration-500 ease-in-out ${isHomePage && !isScrolled ? "text-white": "text-primary"}`}>House of</span>
                     <span
                       className={`leading-none transition-all duration-500 ease-in-out ${
                         isHomePage && !isScrolled ? "text-3xl" : "text-2xl"

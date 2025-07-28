@@ -493,7 +493,7 @@ export default function PickleDetailPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <TabsList className="w-full justify-start bg-primary text-white rounded-sm gap-2  grid md:flex grid-cols-2 h-auto">
+              <TabsList className="w-full justify-start bg-primary text-white rounded-sm md:gap-2 gap-2  flex md:flex  h-auto">
                 {["about", "ingredients", "nutrition", "packaging"].map(
                   (tab, index) => (
                     <motion.div

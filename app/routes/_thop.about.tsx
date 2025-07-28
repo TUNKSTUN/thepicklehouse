@@ -313,7 +313,7 @@ const About = () => {
         <img
           src={OurAchievements}
           alt="Process Background"
-          className="absolute inset-0 w-full h-full object-cover opacity-20 bg-blend-multiply blur-sm pointer-events-none z-10"
+          className="absolute inset-0 w-full h-full object-cover opacity-20 bg-blend-multiply  pointer-events-none z-0"
         />
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -337,8 +337,8 @@ const About = () => {
                 className="text-center animate-stagger"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="bg-secondary/10 rounded-full p-6 w-20 h-20 mx-auto mb-4 flex items-center justify-center">
-                  <achievement.icon className="w-8 h-8 text-secondary" />
+                <div className="bg-secondary rounded-full p-6 w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                  <achievement.icon className="w-8 h-8 text-primary" />
                 </div>
                 <div className="text-3xl lg:text-4xl font-playfair font-bold text-secondary mb-2">
                   {achievement.number}

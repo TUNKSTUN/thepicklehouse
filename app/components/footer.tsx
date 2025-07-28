@@ -34,12 +34,12 @@ export const Footer = () => {
                 </div>
                 <div>
                   <h3
-                    className="font-playfair font-bold text-secondary  text-center transition-all duration-300 group-hover:text-turmeric"
-                    style={{ lineHeight: "0.60" }}
+                    className="font-playfair leading-none text-center items-center justify-center font-bold transition-all duration-500 ease-in-out "
+                    style={{ lineHeight: "0.6" }}
                   >
-                    <span className="block text-lg">The</span>
-                    <span className="block text-lg">House of</span>
-                    <span className="block text-3xl lg:text-5xl font-extrabold bg-gradient-to-r from-turmeric to-secondary bg-clip-text text-transparent">
+                    <span className="block text-base leading-none">The</span>
+                    <span className="block text-base leading-none">House of</span>
+                    <span className="leading-none block text-3xl lg:text-4xl font-extrabold bg-gradient-to-r from-turmeric to-secondary bg-clip-text text-transparent">
                       Pickles
                     </span>
                   </h3>
