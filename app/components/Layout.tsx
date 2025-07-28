@@ -8,10 +8,12 @@ interface LayoutProps {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <div className="h-full z-50 flex flex-col ">
+    <>
+    <div className="min-h-dvh flex flex-col overflow-x-clip">
       <Navbar />
-      <main className="">{children}</main>
+      <main className="flex-1">{children}</main>
       <Footer />
     </div>
+    </>
   );
 }
