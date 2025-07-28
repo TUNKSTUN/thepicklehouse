@@ -6,7 +6,7 @@ const transporter = nodemailer.createTransport({
     secure: false, // TLS
     auth: {
         user: "ykinwork1@gmail.com",
-        pass: "nrkteykeunutrtfo", // 16-char Google App Password
+        pass: "XXXXXXXXXXXXXXXXXXXXX", // 16-char Google App Password
     },
 });
 
