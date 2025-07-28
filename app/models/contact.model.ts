@@ -4,6 +4,7 @@ export interface Contact extends Document {
   _id: string;
   name: string;
   email: string;
+  title: string;
   message: string;
   createdAt: Date;
   updatedAt: Date;
@@ -23,6 +24,13 @@ const ContactSchema: Schema = new Schema(
       required: [true, "Email is required"],
       trim: true,
       match: [/^\S+@\S+\.\S+$/, "Please provide a valid email address"],
+    },
+    title: {
+      type: String,
+      required: [true, "Title is required"],
+      trim: true,
+      minlength: [10, "Title must be at least 10 characters"],
+      maxlength: [80, "Title cannot exceed 500 characters"],
     },
     message: {
       type: String,

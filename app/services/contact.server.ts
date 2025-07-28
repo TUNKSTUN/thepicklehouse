@@ -1,32 +1,49 @@
 import { ContactModel, Contact } from "../models/contact.model";
 import { sendContactEmail } from "../lib/email.server";
+import { getEnv } from "~/environments/environment";
 
 export class ContactService {
+
   /**
    * Create a new contact submission and send email notification.
    * @param name - User's name.
    * @param email - User's email.
+   * @param title - User's title.
+   * @param phone - User's phone number.
    * @param message - User's message.
    * @returns Created contact.
-   */
+  */
   static async createContact(
     name: string,
     email: string,
+    phone: string,
+    title: string,
     message: string
   ): Promise<Contact> {
     try {
+      const environment = getEnv() //here too
+      console.log(environment)
       const contact = new ContactModel({
         name,
         email,
+        phone,
+        title,
         message,
       });
       const savedContact = await contact.save();
+      console.log('ENV DEBUG', {
+        SMTP_HOST: environment.SMTP_HOST,
+        SMTP_USER: environment.SMTP_USER,
+        SMTP_PASS: environment.SMTP_PASS ? 'SET' : 'MISSING'
+      });
 
       // Send email notification
       await sendContactEmail({
-        to_email: "thehouseofhappiness@gmail.com",
+        to_email: "ykinwork1@gmail.com",
         from_name: name,
         from_email: email,
+        phone,
+        title,
         message,
       });
 

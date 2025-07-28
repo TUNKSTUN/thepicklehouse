@@ -18,18 +18,23 @@
 
     --olived: 80 30% 25%;
     --olived-foreground: 48 25% 95%;
+    
+    --primary: 0 45% 30%;
+    --primary-foreground: 0 20% 96%;
+    
+    --secondary: 48 85% 75%;
+    --secondary-foreground: 25 30% 20%;
+    /* Brand-Specific Colors */
+    --turmeric: 48 85% 65%;
+    --terracotta: 15 65% 70%;
+    --spice-red: 10 75% 60%;
+    --masala-brown: 25 45% 35%;
 
     --card: 48 20% 98%;
     --card-foreground: 25 25% 15%;
 
     --popover: 48 20% 98%;
     --popover-foreground: 25 25% 15%;
-
-    --primary: 0 45% 30%;
-    --primary-foreground: 0 20% 96%;
-
-    --secondary: 48 85% 75%;
-    --secondary-foreground: 25 30% 20%;
 
     --muted: 25 35% 88%;
     --muted-foreground: 25 15% 45%;
@@ -46,11 +51,6 @@
 
     --radius: 0.75rem;
 
-    /* Brand-Specific Colors */
-    --turmeric: 48 85% 65%;
-    --terracotta: 15 65% 70%;
-    --spice-red: 10 75% 60%;
-    --masala-brown: 25 45% 35%;
 
     /* Gradients */
     --gradient-hero: linear-gradient(135deg,

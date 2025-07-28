@@ -14,6 +14,7 @@ import BackgroundImage from "../assets/table_with_jars.jpg";
 
 // Utility to validate email format
 const isValidEmail = (email: string) => /^\S+@\S+\.\S+$/.test(email);
+const isValidPhone = (phone: string) => /^\+?[0-9]{7,15}$/.test(phone);
 
 export const loader: LoaderFunction = async ({ request }) => {
   try {
@@ -34,6 +35,8 @@ export async function action({ request }: ActionFunctionArgs) {
     const formData = await request.formData();
     const name = formData.get("name")?.toString() || "";
     const email = formData.get("email")?.toString() || "";
+    const phone = formData.get("phone")?.toString() || "";
+    const title = formData.get("title")?.toString() || "";
     const message = formData.get("message")?.toString() || "";
 
     if (!name || name.length < 2 || name.length > 50) {
@@ -48,6 +51,12 @@ export async function action({ request }: ActionFunctionArgs) {
         { status: 400 }
       );
     }
+    if (!email || !isValidPhone(phone)) {
+      return json(
+        { success: false, error: "Valid email is required" },
+        { status: 400 }
+      );
+    }
     if (!message || message.length < 10 || message.length > 500) {
       return json(
         {
@@ -57,8 +66,17 @@ export async function action({ request }: ActionFunctionArgs) {
         { status: 400 }
       );
     }
+    if (!title || message.length < 10 || message.length > 80) {
+      return json(
+        {
+          success: false,
+          error: "Title must be between 10 and 80 characters",
+        },
+        { status: 400 }
+      );
+    }
 
-    await ContactService.createContact(name, email, message);
+    await ContactService.createContact(name, email, phone, title, message);
 
     return json(
       { success: true, message: "Thank you! Your message has been sent." },
@@ -269,7 +287,7 @@ export default function ContactPage() {
 
             <div className="bg-card border border-border rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-12 shadow-lg">
               <Form method="post" className="space-y-6 sm:space-y-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
                   <div>
                     <Input
                       type="text"
@@ -292,6 +310,30 @@ export default function ContactPage() {
                       required
                     />
                   </div>
+                  <div>
+                    <Input
+                      type="number"
+                      name="phone"
+                      id="phone"
+                      placeholder="Enter your phone number"
+                      className="border-input focus:border-primary focus:ring-primary/20 rounded-xl h-12 px-4 text-sm sm:text-base"
+                      required
+                      minLength={8}
+                      maxLength={15}
+                    />
+                  </div>
+                </div>
+                <div>
+                  <Input
+                    type="text"
+                    name="title"
+                    id="title"
+                    placeholder="Subject of your message..."
+                    required
+                    minLength={10}
+                    maxLength={100}
+                    className="border-input focus:border-primary focus:ring-primary/20 rounded-xl h-12 px-4 text-sm sm:text-base"
+                  />
                 </div>
 
                 <div>
