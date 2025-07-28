@@ -84,9 +84,8 @@ function ProductCard({ product, viewMode }: ProductCardProps) {
     return Array.from({ length: 5 }, (_, i) => (
       <Flame
         key={i}
-        className={`w-4 h-4 ${
-          i < level ? "text-spice-red fill-current" : "text-border"
-        }`}
+        className={`w-4 h-4 ${i < level ? "text-spice-red fill-current" : "text-border"
+          }`}
       />
     ));
   };
@@ -259,9 +258,8 @@ export default function ProductsPage() {
     return Array.from({ length: 5 }, (_, i) => (
       <Flame
         key={i}
-        className={`w-4 h-4 ${
-          i < level ? "text-spice-red fill-current" : "text-border"
-        }`}
+        className={`w-4 h-4 ${i < level ? "text-spice-red fill-current" : "text-border"
+          }`}
       />
     ));
   };
@@ -494,7 +492,7 @@ export default function ProductsPage() {
                   <SelectItem value="popular">Most Popular</SelectItem>
                 </SelectContent>
               </Select>
-              <div className="flex items-center gap-2">
+              <div className=" items-center gap-2 md:block hidden">
                 <Button
                   variant={viewMode === "grid" ? "default" : "outline"}
                   size="icon"

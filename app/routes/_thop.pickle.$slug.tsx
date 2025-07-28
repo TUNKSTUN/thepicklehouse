@@ -106,9 +106,8 @@ function RelatedPickles({ pickles }: RelatedPicklesProps) {
     return Array.from({ length: 5 }, (_, i) => (
       <Flame
         key={i}
-        className={`w-3 h-3 ${
-          i < level ? "text-spice-red fill-current" : "text-border"
-        }`}
+        className={`w-3 h-3 ${i < level ? "text-spice-red fill-current" : "text-border"
+          }`}
       />
     ));
   };
@@ -198,9 +197,8 @@ export default function PickleDetailPage() {
         transition={{ duration: 0.3, delay: i * 0.1 }}
       >
         <Flame
-          className={`w-5 h-5 ${
-            i < level ? "text-spice-red fill-current" : "text-border"
-          }`}
+          className={`w-5 h-5 ${i < level ? "text-spice-red fill-current" : "text-border"
+            }`}
         />
       </motion.div>
     ));
@@ -327,11 +325,10 @@ export default function PickleDetailPage() {
                               }}
                             >
                               <Star
-                                className={`w-4 h-4 ${
-                                  i < Math.floor(pickle.rating)
-                                    ? "text-yellow-500 fill-current"
-                                    : "text-border"
-                                }`}
+                                className={`w-4 h-4 ${i < Math.floor(pickle.rating)
+                                  ? "text-yellow-500 fill-current"
+                                  : "text-border"
+                                  }`}
                               />
                             </motion.div>
                           ))}
@@ -347,7 +344,7 @@ export default function PickleDetailPage() {
                     </Badge>
                   </motion.div>
                 </div>
-                <motion.div
+                {/* <motion.div
                   className="flex items-center gap-2"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -356,6 +353,7 @@ export default function PickleDetailPage() {
                   <motion.div
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
+                    className=""
                   >
                     <Button
                       variant="outline"
@@ -380,7 +378,7 @@ export default function PickleDetailPage() {
                       <Share2 className="w-5 h-5" />
                     </Button>
                   </motion.div>
-                </motion.div>
+                </motion.div> */}
               </div>
 
               <motion.p
@@ -495,7 +493,7 @@ export default function PickleDetailPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <TabsList className="w-full justify-start bg-primary text-white rounded-sm gap-2">
+              <TabsList className="w-full justify-start bg-primary text-white rounded-sm gap-2  grid md:flex grid-cols-2 h-auto">
                 {["about", "ingredients", "nutrition", "packaging"].map(
                   (tab, index) => (
                     <motion.div
@@ -516,451 +514,451 @@ export default function PickleDetailPage() {
               </TabsList>
             </motion.div>
 
-<AnimatePresence mode="wait">
-      {/* ABOUT TAB */}
-      <TabsContent value="about" className="mt-6">
-        <motion.div
-          key="about"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-        >
-          <Card className="overflow-hidden shadow-lg border-0 bg-gradient-to-br from-card to-turmeric/10">
-            <CardHeader className="bg-gradient-to-r from-secondary to-turmeric/20 pb-4">
-              <CardTitle className="text-2xl text-masala-brown flex items-center gap-2">
-                <Info className="w-6 h-6" />
-                About Our Pickle
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-8">
-              <motion.p
-                className="text-muted-foreground leading-relaxed mb-8 text-lg"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                {pickle.about}
-              </motion.p>
-              
-              <div className="grid md:grid-cols-2 gap-8">
-                {/* Key Characteristics */}
+            <AnimatePresence mode="wait">
+              {/* ABOUT TAB */}
+              <TabsContent value="about" className="mt-6">
                 <motion.div
-                  initial={{ opacity: 0, x: -30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.3 }}
-                >
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-2 h-2 bg-turmeric rounded-full"></div>
-                    <h4 className="font-bold text-xl text-masala-brown">
-                      Key Characteristics
-                    </h4>
-                  </div>
-                  <div className="space-y-3">
-                    {pickle.key_characteristics.map((char, index) => (
-                      <motion.div
-                        key={index}
-                        className="flex items-start gap-3 p-3 bg-card/60 rounded-lg backdrop-blur-sm"
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                      >
-                        <div className="w-1.5 h-1.5 bg-turmeric rounded-full mt-2 flex-shrink-0"></div>
-                        <span className="text-muted-foreground leading-relaxed">{char}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-
-                {/* Health Benefits */}
-                <motion.div
-                  initial={{ opacity: 0, x: 30 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.4 }}
-                >
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-2 h-2 bg-olived rounded-full"></div>
-                    <h4 className="font-bold text-xl text-olived">
-                      Health Benefits
-                    </h4>
-                  </div>
-                  <div className="space-y-3">
-                    {pickle.health_benefits.map((benefit, index) => (
-                      <motion.div
-                        key={index}
-                        className="flex items-start gap-3 p-3 bg-olived/10 rounded-lg backdrop-blur-sm border border-border"
-                        initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                      >
-                        <Heart className="w-4 h-4 text-olived mt-0.5 flex-shrink-0" />
-                        <span className="text-olived-foreground leading-relaxed">{benefit}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </TabsContent>
-
-      {/* INGREDIENTS TAB */}
-      <TabsContent value="ingredients" className="mt-6">
-        <motion.div
-          key="ingredients"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-        >
-          <Card className="overflow-hidden shadow-lg border-0 bg-gradient-to-br from-card to-olived/10">
-            <CardHeader className="bg-gradient-to-r from-olived/20 to-olived/10 pb-4">
-              <CardTitle className="text-2xl text-olived flex items-center gap-2">
-                <Leaf className="w-6 h-6" />
-                Premium Ingredients
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-8">
-              <motion.div
-                className="grid md:grid-cols-2 gap-8 mb-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                {/* Primary Ingredients */}
-                <motion.div
+                  key="about"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
-                  <div className="flex items-center gap-2 mb-6">
-                    <div className="w-3 h-3 bg-turmeric rounded-full"></div>
-                    <h5 className="font-bold text-xl text-masala-brown">Primary Ingredients</h5>
-                  </div>
-                  <div className="space-y-3">
-                    {pickle.ingredients.primary.map((ingredient, index) => (
-                      <motion.div
-                        key={index}
-                        className="flex items-center gap-3 p-4 bg-turmeric/10 rounded-xl border border-border hover:bg-turmeric/20 transition-colors"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
-                        whileHover={{ scale: 1.02 }}
+                  <Card className="overflow-hidden shadow-lg border-0 bg-gradient-to-br from-card to-turmeric/10">
+                    <CardHeader className="bg-gradient-to-r from-secondary to-turmeric/20 pb-4">
+                      <CardTitle className="text-2xl text-masala-brown flex items-center gap-2">
+                        <Info className="w-6 h-6" />
+                        About Our Pickle
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-8">
+                      <motion.p
+                        className="text-muted-foreground leading-relaxed mb-8 text-lg"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.2 }}
                       >
-                        <div className="w-2 h-2 bg-turmeric rounded-full"></div>
-                        <span className="text-masala-brown font-medium text-lg">{ingredient}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
+                        {pickle.about}
+                      </motion.p>
 
-                {/* Spices */}
+                      <div className="grid md:grid-cols-2 gap-8">
+                        {/* Key Characteristics */}
+                        <motion.div
+                          initial={{ opacity: 0, x: -30 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.3 }}
+                        >
+                          <div className="flex items-center gap-2 mb-4">
+                            <div className="w-2 h-2 bg-turmeric rounded-full"></div>
+                            <h4 className="font-bold text-xl text-masala-brown">
+                              Key Characteristics
+                            </h4>
+                          </div>
+                          <div className="space-y-3">
+                            {pickle.key_characteristics.map((char, index) => (
+                              <motion.div
+                                key={index}
+                                className="flex items-start gap-3 p-3 bg-card/60 rounded-lg backdrop-blur-sm"
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                              >
+                                <div className="w-1.5 h-1.5 bg-turmeric rounded-full mt-2 flex-shrink-0"></div>
+                                <span className="text-muted-foreground leading-relaxed">{char}</span>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </motion.div>
+
+                        {/* Health Benefits */}
+                        <motion.div
+                          initial={{ opacity: 0, x: 30 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ delay: 0.4 }}
+                        >
+                          <div className="flex items-center gap-2 mb-4">
+                            <div className="w-2 h-2 bg-olived rounded-full"></div>
+                            <h4 className="font-bold text-xl text-olived">
+                              Health Benefits
+                            </h4>
+                          </div>
+                          <div className="space-y-3">
+                            {pickle.health_benefits.map((benefit, index) => (
+                              <motion.div
+                                key={index}
+                                className="flex items-start gap-3 p-3 bg-olived/10 rounded-lg backdrop-blur-sm border border-border"
+                                initial={{ opacity: 0, x: 20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                              >
+                                <Heart className="w-4 h-4 text-olived mt-0.5 flex-shrink-0" />
+                                <span className="text-olived-foreground leading-relaxed">{benefit}</span>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </motion.div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </TabsContent>
+
+              {/* INGREDIENTS TAB */}
+              <TabsContent value="ingredients" className="mt-6">
                 <motion.div
+                  key="ingredients"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.4 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
-                  <div className="flex items-center gap-2 mb-6">
-                    <div className="w-3 h-3 bg-spice-red rounded-full"></div>
-                    <h5 className="font-bold text-xl text-spice-red">Aromatic Spices</h5>
-                  </div>
-                  <div className="space-y-3">
-                    {pickle.ingredients.spices.map((spice, index) => (
+                  <Card className="overflow-hidden shadow-lg border-0 bg-gradient-to-br from-card to-olived/10">
+                    <CardHeader className="bg-gradient-to-r from-olived/20 to-olived/10 pb-4">
+                      <CardTitle className="text-2xl text-olived flex items-center gap-2">
+                        <Leaf className="w-6 h-6" />
+                        Premium Ingredients
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-8">
                       <motion.div
-                        key={index}
-                        className="flex items-center gap-3 p-4 bg-spice-red/10 rounded-xl border border-border hover:bg-spice-red/20 transition-colors"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
-                        whileHover={{ scale: 1.02 }}
+                        className="grid md:grid-cols-2 gap-8 mb-8"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.2 }}
                       >
-                        <div className="w-2 h-2 bg-spice-red rounded-full"></div>
-                        <span className="text-spice-red font-medium text-lg">{spice}</span>
+                        {/* Primary Ingredients */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.3 }}
+                        >
+                          <div className="flex items-center gap-2 mb-6">
+                            <div className="w-3 h-3 bg-turmeric rounded-full"></div>
+                            <h5 className="font-bold text-xl text-masala-brown">Primary Ingredients</h5>
+                          </div>
+                          <div className="space-y-3">
+                            {pickle.ingredients.primary.map((ingredient, index) => (
+                              <motion.div
+                                key={index}
+                                className="flex items-center gap-3 p-4 bg-turmeric/10 rounded-xl border border-border hover:bg-turmeric/20 transition-colors"
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.3, delay: 0.4 + index * 0.1 }}
+                                whileHover={{ scale: 1.02 }}
+                              >
+                                <div className="w-2 h-2 bg-turmeric rounded-full"></div>
+                                <span className="text-masala-brown font-medium text-lg">{ingredient}</span>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </motion.div>
+
+                        {/* Spices */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 0.4 }}
+                        >
+                          <div className="flex items-center gap-2 mb-6">
+                            <div className="w-3 h-3 bg-spice-red rounded-full"></div>
+                            <h5 className="font-bold text-xl text-spice-red">Aromatic Spices</h5>
+                          </div>
+                          <div className="space-y-3">
+                            {pickle.ingredients.spices.map((spice, index) => (
+                              <motion.div
+                                key={index}
+                                className="flex items-center gap-3 p-4 bg-spice-red/10 rounded-xl border border-border hover:bg-spice-red/20 transition-colors"
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+                                whileHover={{ scale: 1.02 }}
+                              >
+                                <div className="w-2 h-2 bg-spice-red rounded-full"></div>
+                                <span className="text-spice-red font-medium text-lg">{spice}</span>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </motion.div>
                       </motion.div>
-                    ))}
-                  </div>
-                </motion.div>
-              </motion.div>
 
-              <Separator className="my-6" />
+                      <Separator className="my-6" />
 
-              <motion.div
-                className="bg-gradient-to-r from-turmeric/10 to-turmeric/20 p-6 rounded-xl border border-border"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-              >
-                <div className="flex items-start gap-3">
-                  <Shield className="w-5 h-5 text-turmeric mt-1" />
-                  <div>
-                    <h6 className="font-semibold text-masala-brown mb-2">Quality Assurance</h6>
-                    <p className="text-turmeric leading-relaxed">
-                      All ingredients are carefully selected and sourced from trusted local suppliers. 
-                      Made in a facility that processes various spices and seasonal ingredients with 
-                      strict quality control measures.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </TabsContent>
-
-      {/* NUTRITION TAB */}
-      <TabsContent value="nutrition" className="mt-6">
-        <motion.div
-          key="nutrition"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-        >
-          <Card className="overflow-hidden shadow-lg border-0 bg-gradient-to-br from-card to-primary/10">
-            <CardHeader className="bg-gradient-to-r from-accent/20 to-accent/10 pb-4">
-              <CardTitle className="text-2xl text-primary flex items-center gap-2">
-                <Heart className="w-6 h-6" />
-                Nutritional Information
-              </CardTitle>
-              <p className="text-primary mt-2">Per {pickle.nutritionalInfo.servingSize} serving</p>
-            </CardHeader>
-            <CardContent className="p-8">
-              <motion.div
-                className="grid md:grid-cols-2 gap-6 mb-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                <div className="space-y-4">
-                  {[
-                    { label: "Calories", value: `${pickle.nutritionalInfo.calories} kcal`, color: "bg-spice-red", percentage: 60 },
-                    { label: "Protein", value: pickle.nutritionalInfo.protein, color: "bg-olived", percentage: 25 },
-                    { label: "Carbohydrates", value: pickle.nutritionalInfo.carbs, color: "bg-turmeric", percentage: 80 },
-                    { label: "Dietary Fiber", value: pickle.nutritionalInfo.fiber, color: "bg-accent", percentage: 40 }
-                  ].map((item, index) => (
-                    <motion.div
-                      key={item.label}
-                      className="p-4 bg-card rounded-xl border border-border shadow-sm"
-                      initial={{ opacity: 0, x: -30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                    >
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-muted-foreground font-medium">{item.label}</span>
-                        <span className="text-foreground font-bold text-lg">{item.value}</span>
-                      </div>
-                      <div className="w-full bg-muted rounded-full h-2">
-                        <motion.div
-                          className={`h-2 rounded-full ${item.color}`}
-                          initial={{ width: 0 }}
-                          animate={{ width: `${item.percentage}%` }}
-                          transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
-                        />
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-
-                <div className="space-y-4">
-                  {[
-                    { label: "Fat", value: pickle.nutritionalInfo.fat, color: "bg-turmeric", percentage: 20 },
-                    { label: "Sodium", value: pickle.nutritionalInfo.sodium, color: "bg-spice-red", percentage: 90 },
-                    { label: "Vitamin C", value: pickle.nutritionalInfo.vitamin_c, color: "bg-primary", percentage: 50 },
-                    { label: "Iron", value: pickle.nutritionalInfo.iron, color: "bg-accent", percentage: 30 }
-                  ].map((item, index) => (
-                    <motion.div
-                      key={item.label}
-                      className="p-4 bg-card rounded-xl border border-border shadow-sm"
-                      initial={{ opacity: 0, x: 30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
-                    >
-                      <div className="flex justify-between items-center mb-2">
-                        <span className="text-muted-foreground font-medium">{item.label}</span>
-                        <span className="text-foreground font-bold text-lg">{item.value}</span>
-                      </div>
-                      <div className="w-full bg-muted rounded-full h-2">
-                        <motion.div
-                          className={`h-2 rounded-full ${item.color}`}
-                          initial={{ width: 0 }}
-                          animate={{ width: `${item.percentage}%` }}
-                          transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
-                        />
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div
-                className="bg-gradient-to-r from-olived/10 to-olived/20 p-6 rounded-xl border-2 border-border"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="p-2 bg-olived rounded-full">
-                    <Heart className="w-5 h-5 text-olived-foreground" />
-                  </div>
-                  <h5 className="font-bold text-xl text-olived">Health Benefits</h5>
-                </div>
-                <div className="grid md:grid-cols-2 gap-3">
-                  {pickle.health_benefits.map((benefit, index) => (
-                    <motion.div
-                      key={index}
-                      className="flex items-start gap-2 text-olived-foreground"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3, delay: 0.7 + index * 0.1 }}
-                    >
-                      <CheckCircle className="w-4 h-4 text-olived mt-0.5 flex-shrink-0" />
-                      <span className="text-sm leading-relaxed">{benefit}</span>
-                    </motion.div>
-                  ))}
-                </div>
-              </motion.div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </TabsContent>
-
-      {/* PACKAGING TAB */}
-      <TabsContent value="packaging" className="mt-6">
-        <motion.div
-          key="packaging"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -20 }}
-          transition={{ duration: 0.5, ease: "easeInOut" }}
-        >
-          <Card className="overflow-hidden shadow-lg border-0 bg-gradient-to-br from-card to-accent/10">
-            <CardHeader className="bg-gradient-to-r from-accent/20 to-accent/10 pb-4">
-              <CardTitle className="text-2xl text-accent flex items-center gap-2">
-                <Package className="w-6 h-6" />
-                Packaging Options
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="p-8">
-              <motion.div
-                className="grid md:grid-cols-2 gap-8 mb-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2 }}
-              >
-                {/* Glass Bottles */}
-                <motion.div
-                  initial={{ opacity: 0, rotateY: -15 }}
-                  animate={{ opacity: 1, rotateY: 0 }}
-                  transition={{ delay: 0.3, duration: 0.6 }}
-                >
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2 bg-turmeric rounded-full">
-                      <Package className="w-5 h-5 text-turmeric" />
-                    </div>
-                    <h5 className="font-bold text-xl text-masala-brown">Premium Glass Jars</h5>
-                  </div>
-                  <div className="space-y-3">
-                    {pickle.packaging.bottle.map((size, index) => (
                       <motion.div
-                        key={index}
-                        className="group p-4 bg-gradient-to-r from-turmeric/10 to-turmeric/20 rounded-xl border border-border hover:shadow-lg transition-all duration-300 cursor-pointer"
+                        className="bg-gradient-to-r from-turmeric/10 to-turmeric/20 p-6 rounded-xl border border-border"
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
-                        whileHover={{ scale: 1.03, y: -2 }}
+                        transition={{ delay: 0.8 }}
                       >
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
-                            <div className="w-3 h-3 bg-turmeric rounded-full group-hover:bg-turmeric transition-colors"></div>
-                            <span className="text-masala-brown font-semibold text-lg">{size}</span>
+                        <div className="flex items-start gap-3">
+                          <Shield className="w-5 h-5 text-turmeric mt-1" />
+                          <div>
+                            <h6 className="font-semibold text-masala-brown mb-2">Quality Assurance</h6>
+                            <p className="text-turmeric leading-relaxed">
+                              All ingredients are carefully selected and sourced from trusted local suppliers.
+                              Made in a facility that processes various spices and seasonal ingredients with
+                              strict quality control measures.
+                            </p>
                           </div>
-                          <Badge variant="secondary" className="bg-turmeric/20 text-masala-brown">
-                            Premium
-                          </Badge>
                         </div>
                       </motion.div>
-                    ))}
-                  </div>
+                    </CardContent>
+                  </Card>
                 </motion.div>
+              </TabsContent>
 
-                {/* Plastic Pouches */}
+              {/* NUTRITION TAB */}
+              <TabsContent value="nutrition" className="mt-6">
                 <motion.div
-                  initial={{ opacity: 0, rotateY: 15 }}
-                  animate={{ opacity: 1, rotateY: 0 }}
-                  transition={{ delay: 0.4, duration: 0.6 }}
+                  key="nutrition"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
                 >
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-2 bg-primary rounded-full">
-                      <Package className="w-5 h-5 text-primary-foreground" />
-                    </div>
-                    <h5 className="font-bold text-xl text-primary">Convenient Pouches</h5>
-                  </div>
-                  <div className="space-y-3">
-                    {pickle.packaging.plastic_bag.map((size, index) => (
+                  <Card className="overflow-hidden shadow-lg border-0 bg-gradient-to-br from-card to-primary/10">
+                    <CardHeader className="bg-gradient-to-r from-accent/20 to-accent/10 pb-4">
+                      <CardTitle className="text-2xl text-primary flex items-center gap-2">
+                        <Heart className="w-6 h-6" />
+                        Nutritional Information
+                      </CardTitle>
+                      <p className="text-primary mt-2">Per {pickle.nutritionalInfo.servingSize} serving</p>
+                    </CardHeader>
+                    <CardContent className="p-8">
                       <motion.div
-                        key={index}
-                        className="group p-4 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl border border-border hover:shadow-lg transition-all duration-300 cursor-pointer"
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-                        whileHover={{ scale: 1.03, y: -2 }}
+                        className="grid md:grid-cols-2 gap-6 mb-8"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.2 }}
                       >
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-3">
-                            <div className="w-3 h-3 bg-primary rounded-full group-hover:bg-primary transition-colors"></div>
-                            <span className="text-primary font-semibold text-lg">{size}</span>
-                          </div>
-                          <Badge variant="secondary" className="bg-primary/20 text-primary">
-                            Eco-Friendly
-                          </Badge>
+                        <div className="space-y-4">
+                          {[
+                            { label: "Calories", value: `${pickle.nutritionalInfo.calories} kcal`, color: "bg-spice-red", percentage: 60 },
+                            { label: "Protein", value: pickle.nutritionalInfo.protein, color: "bg-olived", percentage: 25 },
+                            { label: "Carbohydrates", value: pickle.nutritionalInfo.carbs, color: "bg-turmeric", percentage: 80 },
+                            { label: "Dietary Fiber", value: pickle.nutritionalInfo.fiber, color: "bg-accent", percentage: 40 }
+                          ].map((item, index) => (
+                            <motion.div
+                              key={item.label}
+                              className="p-4 bg-card rounded-xl border border-border shadow-sm"
+                              initial={{ opacity: 0, x: -30 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                            >
+                              <div className="flex justify-between items-center mb-2">
+                                <span className="text-muted-foreground font-medium">{item.label}</span>
+                                <span className="text-foreground font-bold text-lg">{item.value}</span>
+                              </div>
+                              <div className="w-full bg-muted rounded-full h-2">
+                                <motion.div
+                                  className={`h-2 rounded-full ${item.color}`}
+                                  initial={{ width: 0 }}
+                                  animate={{ width: `${item.percentage}%` }}
+                                  transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
+                                />
+                              </div>
+                            </motion.div>
+                          ))}
+                        </div>
+
+                        <div className="space-y-4">
+                          {[
+                            { label: "Fat", value: pickle.nutritionalInfo.fat, color: "bg-turmeric", percentage: 20 },
+                            { label: "Sodium", value: pickle.nutritionalInfo.sodium, color: "bg-spice-red", percentage: 90 },
+                            { label: "Vitamin C", value: pickle.nutritionalInfo.vitamin_c, color: "bg-primary", percentage: 50 },
+                            { label: "Iron", value: pickle.nutritionalInfo.iron, color: "bg-accent", percentage: 30 }
+                          ].map((item, index) => (
+                            <motion.div
+                              key={item.label}
+                              className="p-4 bg-card rounded-xl border border-border shadow-sm"
+                              initial={{ opacity: 0, x: 30 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.4, delay: 0.3 + index * 0.1 }}
+                            >
+                              <div className="flex justify-between items-center mb-2">
+                                <span className="text-muted-foreground font-medium">{item.label}</span>
+                                <span className="text-foreground font-bold text-lg">{item.value}</span>
+                              </div>
+                              <div className="w-full bg-muted rounded-full h-2">
+                                <motion.div
+                                  className={`h-2 rounded-full ${item.color}`}
+                                  initial={{ width: 0 }}
+                                  animate={{ width: `${item.percentage}%` }}
+                                  transition={{ duration: 1, delay: 0.5 + index * 0.1 }}
+                                />
+                              </div>
+                            </motion.div>
+                          ))}
                         </div>
                       </motion.div>
-                    ))}
-                  </div>
+
+                      <motion.div
+                        className="bg-gradient-to-r from-olived/10 to-olived/20 p-6 rounded-xl border-2 border-border"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.6 }}
+                      >
+                        <div className="flex items-center gap-3 mb-4">
+                          <div className="p-2 bg-olived rounded-full">
+                            <Heart className="w-5 h-5 text-olived-foreground" />
+                          </div>
+                          <h5 className="font-bold text-xl text-olived">Health Benefits</h5>
+                        </div>
+                        <div className="grid md:grid-cols-2 gap-3">
+                          {pickle.health_benefits.map((benefit, index) => (
+                            <motion.div
+                              key={index}
+                              className="flex items-start gap-2 text-olived-foreground"
+                              initial={{ opacity: 0, x: -20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ duration: 0.3, delay: 0.7 + index * 0.1 }}
+                            >
+                              <CheckCircle className="w-4 h-4 text-olived mt-0.5 flex-shrink-0" />
+                              <span className="text-sm leading-relaxed">{benefit}</span>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    </CardContent>
+                  </Card>
                 </motion.div>
-              </motion.div>
+              </TabsContent>
 
-              <Separator className="my-6" />
+              {/* PACKAGING TAB */}
+              <TabsContent value="packaging" className="mt-6">
+                <motion.div
+                  key="packaging"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                >
+                  <Card className="overflow-hidden shadow-lg border-0 bg-gradient-to-br from-card to-accent/10">
+                    <CardHeader className="bg-gradient-to-r from-accent/20 to-accent/10 pb-4">
+                      <CardTitle className="text-2xl text-accent flex items-center gap-2">
+                        <Package className="w-6 h-6" />
+                        Packaging Options
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-8">
+                      <motion.div
+                        className="grid md:grid-cols-2 gap-8 mb-8"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.2 }}
+                      >
+                        {/* Glass Bottles */}
+                        <motion.div
+                          initial={{ opacity: 0, rotateY: -15 }}
+                          animate={{ opacity: 1, rotateY: 0 }}
+                          transition={{ delay: 0.3, duration: 0.6 }}
+                        >
+                          <div className="flex items-center gap-3 mb-6">
+                            <div className="p-2 bg-turmeric rounded-full">
+                              <Package className="w-5 h-5 text-turmeric" />
+                            </div>
+                            <h5 className="font-bold text-xl text-masala-brown">Premium Glass Jars</h5>
+                          </div>
+                          <div className="space-y-3">
+                            {pickle.packaging.bottle.map((size, index) => (
+                              <motion.div
+                                key={index}
+                                className="group p-4 bg-gradient-to-r from-turmeric/10 to-turmeric/20 rounded-xl border border-border hover:shadow-lg transition-all duration-300 cursor-pointer"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+                                whileHover={{ scale: 1.03, y: -2 }}
+                              >
+                                <div className="flex items-center justify-between">
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-3 h-3 bg-turmeric rounded-full group-hover:bg-turmeric transition-colors"></div>
+                                    <span className="text-masala-brown font-semibold text-lg">{size}</span>
+                                  </div>
+                                  <Badge variant="secondary" className="bg-turmeric/20 text-masala-brown">
+                                    Premium
+                                  </Badge>
+                                </div>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </motion.div>
 
-              <motion.div
-                className="bg-gradient-to-r from-accent/10 to-accent/20 p-6 rounded-xl border-2 border-border"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 }}
-              >
-                <div className="flex items-start gap-3">
-                  <div className="p-2 bg-accent rounded-full">
-                    <Shield className="w-5 h-5 text-accent-foreground" />
-                  </div>
-                  <div className="flex-1">
-                    <h6 className="font-bold text-xl text-accent mb-3">Our Packaging Promise</h6>
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-accent mt-1" />
-                        <span className="text-accent">Preserves freshness and flavor</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-accent mt-1" />
-                        <span className="text-accent">Ensures safe delivery</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-accent mt-1" />
-                        <span className="text-accent">Food-grade materials only</span>
-                      </div>
-                      <div className="flex items-start gap-2">
-                        <CheckCircle className="w-4 h-4 text-accent mt-1" />
-                        <span className="text-accent">Environmentally conscious</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      </TabsContent>
-    </AnimatePresence>
+                        {/* Plastic Pouches */}
+                        <motion.div
+                          initial={{ opacity: 0, rotateY: 15 }}
+                          animate={{ opacity: 1, rotateY: 0 }}
+                          transition={{ delay: 0.4, duration: 0.6 }}
+                        >
+                          <div className="flex items-center gap-3 mb-6">
+                            <div className="p-2 bg-primary rounded-full">
+                              <Package className="w-5 h-5 text-primary-foreground" />
+                            </div>
+                            <h5 className="font-bold text-xl text-primary">Convenient Pouches</h5>
+                          </div>
+                          <div className="space-y-3">
+                            {pickle.packaging.plastic_bag.map((size, index) => (
+                              <motion.div
+                                key={index}
+                                className="group p-4 bg-gradient-to-r from-primary/10 to-accent/10 rounded-xl border border-border hover:shadow-lg transition-all duration-300 cursor-pointer"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                                whileHover={{ scale: 1.03, y: -2 }}
+                              >
+                                <div className="flex items-center justify-between">
+                                  <div className="flex items-center gap-3">
+                                    <div className="w-3 h-3 bg-primary rounded-full group-hover:bg-primary transition-colors"></div>
+                                    <span className="text-primary font-semibold text-lg">{size}</span>
+                                  </div>
+                                  <Badge variant="secondary" className="bg-primary/20 text-primary">
+                                    Eco-Friendly
+                                  </Badge>
+                                </div>
+                              </motion.div>
+                            ))}
+                          </div>
+                        </motion.div>
+                      </motion.div>
+
+                      <Separator className="my-6" />
+
+                      <motion.div
+                        className="bg-gradient-to-r from-accent/10 to-accent/20 p-6 rounded-xl border-2 border-border"
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8 }}
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className="p-2 bg-accent rounded-full">
+                            <Shield className="w-5 h-5 text-accent-foreground" />
+                          </div>
+                          <div className="flex-1">
+                            <h6 className="font-bold text-xl text-accent mb-3">Our Packaging Promise</h6>
+                            <div className="grid md:grid-cols-2 gap-4">
+                              <div className="flex items-start gap-2">
+                                <CheckCircle className="w-4 h-4 text-accent mt-1" />
+                                <span className="text-accent">Preserves freshness and flavor</span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <CheckCircle className="w-4 h-4 text-accent mt-1" />
+                                <span className="text-accent">Ensures safe delivery</span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <CheckCircle className="w-4 h-4 text-accent mt-1" />
+                                <span className="text-accent">Food-grade materials only</span>
+                              </div>
+                              <div className="flex items-start gap-2">
+                                <CheckCircle className="w-4 h-4 text-accent mt-1" />
+                                <span className="text-accent">Environmentally conscious</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              </TabsContent>
+            </AnimatePresence>
           </Tabs>
         </motion.div>
 

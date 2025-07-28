@@ -1,13 +1,13 @@
 import { useRouteLoaderData, Link } from "@remix-run/react";
 import { MapPin, Phone, Mail, Heart, ExternalLink } from "lucide-react";
-import type { loader as rootLoader } from "~/root";
+import { loader } from "~/routes/_thop";
 import Logo from "../assets/thop_logo2.png";
 import { RiInstagramLine } from "react-icons/ri";
 import { Badge } from "./ui/badge";
 import DevLogo from "../assets/dev_logo.png";
 
 export const Footer = () => {
-  const data = useRouteLoaderData<typeof rootLoader>("routes/_thop");
+  const data = useRouteLoaderData<typeof loader>("routes/_thop");
 
   const currentYear = new Date().getFullYear();
 
@@ -214,14 +214,14 @@ export const Footer = () => {
               </p>
               <div className="hidden sm:flex items-center space-x-4 text-xs text-primary-foreground/50">
                 <Link
-                  to="/privacy"
+                  to="/privacy-and-policy"
                   className="hover:text-turmeric transition-colors"
                 >
                   Privacy
                 </Link>
                 <span>•</span>
                 <Link
-                  to="/terms"
+                  to="/terms-and-conditions"
                   className="hover:text-turmeric transition-colors"
                 >
                   Terms
