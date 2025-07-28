@@ -144,7 +144,7 @@ export const Navbar = () => {
                   }`}
               >
                 <span className="text-lg">🍉</span>
-                <span className="text-sm font-medium">Support Palestine</span>
+                <span className="text-sm font-medium underline">Donation</span>
               </Link>
               <Link
                 to="/profile"
@@ -226,11 +226,12 @@ export const Navbar = () => {
       </header>
 
       <div
-        className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out ${isMobileMenuOpen
-          ? "opacity-100 pointer-events-auto"
-          : "opacity-0 pointer-events-none"
-          }`}
-        style={{ top: isHomePage && !isScrolled ? "112px" : "64px" }}
+        className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out ${
+  isMobileMenuOpen
+    ? "opacity-100 pointer-events-auto"
+    : "opacity-0 pointer-events-none"
+}`}
+
       >
         <div
           className={`absolute inset-0  backdrop-blur-md bg-background/10 transition-all duration-300 ease-in-out ${isMobileMenuOpen ? "opacity-100" : "opacity-0"
@@ -239,11 +240,16 @@ export const Navbar = () => {
         />
 
         <div
-          className={`relative bg-card/95 backdrop-blur-sm border-b border-border shadow-lg transition-all duration-400 ease-out ${isMobileMenuOpen
-            ? "transform translate-y-0 opacity-100"
-            : "transform -translate-y-4 opacity-0"
-            }`}
-        >
+  className={`relative bg-card/95 backdrop-blur-sm border-b border-border shadow-lg transition-all duration-400 ease-out ${
+    isMobileMenuOpen
+      ? "transform translate-y-0 opacity-100"
+      : "transform -translate-y-4 opacity-0"
+  }`}
+  style={{
+    paddingTop: isHomePage && !isScrolled ? "112px" : "64px",
+  }}
+>
+
           <nav className="px-6 py-6 space-y-1">
             {navigation.map((item, index) => (
               <Link
@@ -290,7 +296,7 @@ export const Navbar = () => {
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 <span className="mr-2 text-lg">🇵🇸</span>
-                Support Palestine
+                Donation
               </Link>
               <Link
                 to="/profile"

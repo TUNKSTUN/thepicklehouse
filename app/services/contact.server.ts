@@ -1,6 +1,5 @@
 import { ContactModel, Contact } from "../models/contact.model";
 import { sendContactEmail } from "../lib/email.server";
-import { getEnv } from "~/environments/environment";
 
 export class ContactService {
 
@@ -21,8 +20,6 @@ export class ContactService {
     message: string
   ): Promise<Contact> {
     try {
-      const environment = getEnv() //here too
-      console.log(environment)
       const contact = new ContactModel({
         name,
         email,
@@ -31,11 +28,7 @@ export class ContactService {
         message,
       });
       const savedContact = await contact.save();
-      console.log('ENV DEBUG', {
-        SMTP_HOST: environment.SMTP_HOST,
-        SMTP_USER: environment.SMTP_USER,
-        SMTP_PASS: environment.SMTP_PASS ? 'SET' : 'MISSING'
-      });
+     
 
       // Send email notification
       await sendContactEmail({

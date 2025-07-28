@@ -1,5 +1,5 @@
 import nodemailer from "nodemailer";
-import { getEnv } from "~/environments/environment";
+import { getEnv } from "../environments/environment";
 
 interface EmailParams {
   to_email: string;

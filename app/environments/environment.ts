@@ -26,7 +26,6 @@ export const getEnv = () => {
 
     if (!environment.MONGODB_URI) throw new Error("MONGODB_URI is not defined in .env file");
     if (!environment.SESSION_SECRET) throw new Error("SESSION_SECRET is not defined in .env file");
-    console.log(environment)
     return environment;
 };
 
