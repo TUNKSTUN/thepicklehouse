@@ -7,7 +7,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 import type { LinksFunction } from "@remix-run/node";
-import { Analytics} from "@vercel/analytics"
+import { Analytics } from '@vercel/analytics/react';
 
 
 import "./tailwind.css";
